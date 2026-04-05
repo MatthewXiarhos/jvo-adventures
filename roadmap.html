@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recovery to Purpose Roadmap — JVO Adventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --forest: #1e3a2f;
+  --forest-mid: #2d5a42;
+  --moss: #6aab84;
+  --bark: #4a3728;
+  --cream: #f5f2eb;
+  --cream-dark: #ede9df;
+  --sand: #c8b89a;
+  --amber: #e8a020;
+  --text: #2a2a2a;
+  --text-muted: #6b6b6b;
+  --white: #ffffff;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.7; }
+
+/* ── TOP BAR ──────────────────────────────────────────────────────────── */
+.topbar {
+  background: var(--forest); padding: 0.85rem 1.5rem;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-logo { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.1rem; }
+.topbar-logo span { color: var(--moss); }
+.topbar-back { font-size: 0.85rem; color: rgba(255,255,255,0.6); text-decoration: none; }
+.topbar-back:hover { color: var(--moss); }
+
+/* ── COVER ────────────────────────────────────────────────────────────── */
+.cover {
+  background: linear-gradient(160deg, var(--forest) 0%, #2d5a42 60%, #1a4a35 100%);
+  padding: 5rem 2rem 4rem; text-align: center; position: relative; overflow: hidden;
+}
+.cover-texture {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.cover-inner { position: relative; z-index: 1; max-width: 680px; margin: 0 auto; }
+.cover-eyebrow { font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--moss); margin-bottom: 1.25rem; display: block; }
+.cover h1 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3rem); color: var(--white); line-height: 1.2; margin-bottom: 1rem; }
+.cover-sub { color: rgba(255,255,255,0.65); font-size: 1.05rem; margin-bottom: 0.75rem; }
+.cover-for { font-family: 'Playfair Display', serif; font-style: italic; color: var(--moss); font-size: 1.1rem; }
+
+/* ── LAYOUT ───────────────────────────────────────────────────────────── */
+.main { max-width: 820px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+
+/* ── VISION BLOCK ─────────────────────────────────────────────────────── */
+.vision-block {
+  background: var(--white); border-radius: 16px; padding: 2.5rem;
+  margin-bottom: 2.5rem; border-left: 4px solid var(--moss);
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+}
+.vision-block h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--forest); margin-bottom: 1rem; grid-column: 1/-1; }
+.vision-text p { color: var(--text-muted); margin-bottom: 0.75rem; font-size: 0.97rem; }
+.vision-callout { background: var(--forest); border-radius: 12px; padding: 1.5rem; }
+.vision-callout p { color: rgba(255,255,255,0.75); font-size: 0.88rem; margin-bottom: 0.6rem; }
+.vision-callout p:last-child { margin-bottom: 0; }
+.vision-callout strong { color: var(--white); }
+.vision-quote { grid-column: 1/-1; border-top: 1px solid var(--cream-dark); padding-top: 1.25rem; margin-top: 0.5rem; }
+.vision-quote blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--forest); text-align: center; }
+
+/* ── ROADMAP OVERVIEW ─────────────────────────────────────────────────── */
+.section-label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--moss); display: block; margin-bottom: 1rem; }
+.overview-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2.5rem;
+}
+.overview-card {
+  background: var(--white); border-radius: 14px; padding: 1.25rem 1.5rem;
+  border-top: 3px solid var(--moss); transition: transform 0.2s;
+}
+.overview-card:hover { transform: translateY(-2px); }
+.overview-card .stage-num { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--moss); margin-bottom: 0.3rem; }
+.overview-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--forest); margin-bottom: 0.25rem; }
+.overview-card .timeframe { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+.overview-card p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ── STAGE SECTIONS ───────────────────────────────────────────────────── */
+.stage-section { margin-bottom: 2rem; }
+.stage-header {
+  background: var(--forest); border-radius: 14px 14px 0 0;
+  padding: 1.5rem 2rem; display: flex; align-items: flex-start; gap: 1.25rem;
+}
+.stage-badge {
+  background: var(--moss); color: var(--forest); font-weight: 700;
+  font-size: 0.78rem; padding: 0.35rem 0.85rem; border-radius: 50px;
+  white-space: nowrap; margin-top: 0.2rem;
+}
+.stage-header-text h2 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.4rem; margin-bottom: 0.2rem; }
+.stage-header-text .timeframe { color: rgba(255,255,255,0.55); font-size: 0.85rem; }
+.stage-body { background: var(--white); border-radius: 0 0 14px 14px; padding: 2rem; }
+.stage-body p { color: var(--text-muted); margin-bottom: 0.85rem; font-size: 0.95rem; }
+.stage-body p:last-child { margin-bottom: 0; }
+.stage-body strong { color: var(--text); }
+
+/* NUMBERED STEPS */
+.steps { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1rem 0; }
+.steps li { display: flex; gap: 0.75rem; align-items: flex-start; }
+.step-num { background: var(--forest); color: var(--white); width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.78rem; font-weight: 700; flex-shrink: 0; margin-top: 0.1rem; }
+.steps li p { font-size: 0.9rem; color: var(--text-muted); margin: 0; }
+
+/* BULLET LIST */
+.bullet-list { list-style: none; margin: 0.75rem 0; }
+.bullet-list li { padding: 0.45rem 0 0.45rem 1.25rem; position: relative; font-size: 0.92rem; color: var(--text-muted); border-bottom: 1px solid var(--cream-dark); }
+.bullet-list li:last-child { border-bottom: none; }
+.bullet-list li::before { content: '▸'; position: absolute; left: 0; color: var(--moss); font-size: 0.75rem; top: 0.55rem; }
+
+/* TWO COLUMN STAGE */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.col-card { background: var(--cream); border-radius: 10px; padding: 1.25rem; }
+.col-card h4 { font-family: 'DM Sans', sans-serif; font-size: 0.92rem; font-weight: 600; color: var(--forest); margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--moss); }
+
+/* ── TWO PATHS TABLE ──────────────────────────────────────────────────── */
+.paths-section { margin-bottom: 2rem; }
+.paths-header { background: var(--bark); border-radius: 14px 14px 0 0; padding: 1.5rem 2rem; }
+.paths-header h2 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.4rem; }
+.paths-body { background: var(--white); border-radius: 0 0 14px 14px; padding: 0; overflow: hidden; }
+.paths-table { width: 100%; border-collapse: collapse; }
+.paths-table th { background: var(--cream-dark); padding: 1rem 1.5rem; text-align: left; font-size: 0.85rem; font-weight: 600; color: var(--forest); }
+.paths-table th:first-child { width: 25%; }
+.paths-table td { padding: 0.9rem 1.5rem; font-size: 0.9rem; color: var(--text-muted); border-top: 1px solid var(--cream-dark); vertical-align: top; }
+.paths-table tr:hover td { background: var(--cream); }
+.path-a { color: var(--forest) !important; font-weight: 500; }
+.path-b { color: var(--bark) !important; font-weight: 500; }
+
+/* ── 90 DAYS ──────────────────────────────────────────────────────────── */
+.ninety-section { background: var(--forest); border-radius: 16px; padding: 2.5rem; margin-bottom: 2rem; }
+.ninety-section h2 { font-family: 'Playfair Display', serif; color: var(--white); font-size: 1.5rem; margin-bottom: 0.5rem; }
+.ninety-section .sub { color: rgba(255,255,255,0.6); font-size: 0.9rem; margin-bottom: 2rem; }
+.ninety-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.ninety-step { background: rgba(255,255,255,0.08); border-radius: 12px; padding: 1.25rem; border: 1px solid rgba(255,255,255,0.1); }
+.ninety-step .n { font-size: 1.8rem; font-weight: 700; color: var(--moss); font-family: 'Playfair Display', serif; margin-bottom: 0.5rem; line-height: 1; }
+.ninety-step p { font-size: 0.88rem; color: rgba(255,255,255,0.75); line-height: 1.6; margin: 0; }
+.ninety-note { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.15); font-size: 0.88rem; color: rgba(255,255,255,0.55); font-style: italic; }
+
+/* ── FINAL WORD ───────────────────────────────────────────────────────── */
+.final-word { text-align: center; padding: 3rem 2rem; background: var(--white); border-radius: 16px; margin-bottom: 2rem; }
+.final-word h2 { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--forest); margin-bottom: 1rem; line-height: 1.4; }
+.final-word blockquote { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.3rem; color: var(--forest); margin: 1.5rem auto; max-width: 520px; line-height: 1.5; }
+.final-word p { color: var(--text-muted); max-width: 540px; margin: 0 auto 0.75rem; }
+.final-site { font-family: 'Playfair Display', serif; color: var(--moss); font-size: 1.1rem; margin-top: 1.5rem !important; }
+
+@media (max-width: 640px) {
+  .vision-block { grid-template-columns: 1fr; }
+  .overview-grid { grid-template-columns: 1fr; }
+  .steps { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .ninety-steps { grid-template-columns: 1fr; }
+  .paths-table th:first-child, .paths-table td:first-child { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-logo">JVO <span>Adventures</span></div>
+  <a href="admin.html" class="topbar-back">← Back to Admin</a>
+</div>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-texture"></div>
+  <div class="cover-inner">
+    <span class="cover-eyebrow">JVO Adventures</span>
+    <h1>Recovery to Purpose<br>Roadmap</h1>
+    <p class="cover-sub">A steady, realistic path in recovery, outdoor leadership, and service</p>
+    <p class="cover-for">Written for Johnny</p>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- VISION -->
+  <div class="vision-block">
+    <h2>The Vision</h2>
+    <div class="vision-text">
+      <p>To build a life rooted in recovery, nature, brotherhood, and service. A life where the outdoors becomes a place for men to regain strength, clarity, trust, and direction.</p>
+      <p>Adventure becomes a place of healing. Nature becomes a classroom. Your story becomes a guide.</p>
+      <p>Recovery becomes something worth protecting — not just maintaining.</p>
+    </div>
+    <div class="vision-callout">
+      <p><strong>The Most Important Thing</strong></p>
+      <p>Your recovery always comes first.</p>
+      <p>If any part of this path threatens your stability, the path pauses.</p>
+      <p>Nothing meaningful is lost by protecting sobriety.</p>
+      <p><strong>The mission can wait. Your foundation cannot.</strong></p>
+    </div>
+    <div class="vision-quote">
+      <blockquote>"Build a life so stable and meaningful that helping others becomes natural."</blockquote>
+    </div>
+  </div>
+
+  <!-- ROADMAP OVERVIEW -->
+  <span class="section-label">Your Roadmap at a Glance</span>
+  <div class="overview-grid">
+    <div class="overview-card">
+      <div class="stage-num">Stage 0</div>
+      <h3>Foundation</h3>
+      <div class="timeframe">Now – Year 1</div>
+      <p>Protect recovery, rebuild routine, strengthen body and mind.</p>
+    </div>
+    <div class="overview-card">
+      <div class="stage-num">Stage 3</div>
+      <h3>Professional Entry</h3>
+      <div class="timeframe">Year 2 – Year 4</div>
+      <p>Step into paid recovery-support or outdoor-support work.</p>
+    </div>
+    <div class="overview-card">
+      <div class="stage-num">Stage 1</div>
+      <h3>Identity</h3>
+      <div class="timeframe">Year 1 – Year 2</div>
+      <p>Become the person who gets people outside.</p>
+    </div>
+    <div class="overview-card">
+      <div class="stage-num">Stage 4</div>
+      <h3>Credentials</h3>
+      <div class="timeframe">Year 3+</div>
+      <p>Formal training only if it still fits your life and recovery.</p>
+    </div>
+    <div class="overview-card">
+      <div class="stage-num">Stage 2</div>
+      <h3>Apprenticeship</h3>
+      <div class="timeframe">Year 2 – Year 3</div>
+      <p>Learn inside real programs and build safety skills.</p>
+    </div>
+    <div class="overview-card">
+      <div class="stage-num">Stage 5</div>
+      <h3>Integration</h3>
+      <div class="timeframe">Year 5+</div>
+      <p>Blend experience, service, and leadership into something durable.</p>
+    </div>
+  </div>
+
+  <!-- STAGE 0 -->
+  <div class="stage-section">
+    <div class="stage-header">
+      <span class="stage-badge">Stage 0</span>
+      <div class="stage-header-text">
+        <h2>Foundation: Recovery & Strength</h2>
+        <div class="timeframe">Now through Year 1</div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <p>Prioritize meetings, support, honesty, sleep, routine, and physical health.</p>
+      <p>Use hiking, walking, fishing, paddling, skiing, snowshoeing, camping, or strength training as stabilizing practices. Let nature be part of recovery before it becomes part of any mission.</p>
+      <p>The Phoenix or similar sober active communities can be especially valuable here. North Cottage — the sober dry houses on campus — offer the next step in structure and responsibility.</p>
+      <p><strong>This stage is not preparation for the path. This stage IS the path.</strong></p>
+    </div>
+  </div>
+
+  <!-- STAGE 1 -->
+  <div class="stage-section">
+    <div class="stage-header">
+      <span class="stage-badge">Stage 1</span>
+      <div class="stage-header-text">
+        <h2>Identity: Become the Outdoor Leader</h2>
+        <div class="timeframe">Year 1 through Year 2</div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <p>You are no longer only recovering. You begin to become the person people trust to get them outside.</p>
+      <ul class="steps">
+        <li><div class="step-num">1</div><p>Invite one or two sober friends on easy, familiar outings.</p></li>
+        <li><div class="step-num">2</div><p>Keep groups small, simple, safe, and consistent.</p></li>
+        <li><div class="step-num">3</div><p>Take photos, jot down what worked, and notice what helps people open up.</p></li>
+        <li><div class="step-num">4</div><p>Build trust first. Marketing can come later.</p></li>
+      </ul>
+      <p>You don't need a business yet. You need repetition, relationship, and proof — to yourself — that you love doing this.</p>
+    </div>
+  </div>
+
+  <!-- STAGES 2 & 3 -->
+  <div class="stage-section">
+    <div class="stage-header">
+      <span class="stage-badge">Stages 2 & 3</span>
+      <div class="stage-header-text">
+        <h2>Apprenticeship & Professional Entry</h2>
+        <div class="timeframe">Year 2 – Year 4</div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="two-col">
+        <div class="col-card">
+          <h4>Stage 2 — Apprenticeship</h4>
+          <ul class="bullet-list">
+            <li>Look for volunteer or entry roles in outdoor, experiential, or recovery-oriented programs</li>
+            <li>Safety training: Wilderness First Aid, CPR/AED, Wilderness First Responder, Leave No Trace</li>
+            <li>Learn risk management, group facilitation, crisis response, and professional boundaries</li>
+            <li>Watch experienced people closely — their judgment matters as much as their credentials</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <h4>Stage 3 — Professional Entry</h4>
+          <ul class="bullet-list">
+            <li>Entry points: peer support, recovery support, behavioral health or residential support, outdoor-program staff</li>
+            <li>Some begin in community-based recovery support; others start inside treatment programs or sober living</li>
+            <li>Massachusetts recovery-coach standards are evolving — check the current state pathway</li>
+            <li>Choose work that protects recovery rather than work that drains it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STAGES 4 & 5 -->
+  <div class="stage-section">
+    <div class="stage-header">
+      <span class="stage-badge">Stages 4 & 5</span>
+      <div class="stage-header-text">
+        <h2>Credentials & Integration</h2>
+        <div class="timeframe">Year 3 and Beyond</div>
+      </div>
+    </div>
+    <div class="stage-body">
+      <div class="two-col">
+        <div class="col-card">
+          <h4>Stage 4 — Credentials</h4>
+          <ul class="bullet-list">
+            <li>If you want the clinical route, verify current LADC requirements with Massachusetts BSAS</li>
+            <li>If you want the community route, strong safety practices and steady leadership may be enough</li>
+            <li>Credentials should support the mission — not replace it</li>
+            <li>Do not chase titles at the expense of the life you are trying to preserve</li>
+          </ul>
+        </div>
+        <div class="col-card">
+          <h4>Stage 5 — Integration</h4>
+          <ul class="bullet-list">
+            <li>This could look like a community outdoor group, a peer-led recovery initiative, or a role inside an established program</li>
+            <li>You may stay local and small. You may grow something larger. Either is valid.</li>
+            <li>The real achievement is not scale — it is building something honest, stable, and useful</li>
+            <li>Your story doesn't exist in many places. You could write the playbook others follow.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TWO PATHS -->
+  <div class="paths-section">
+    <div class="paths-header">
+      <h2>Two Roads — Both Are Real</h2>
+    </div>
+    <div class="paths-body">
+      <table class="paths-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Path A — Clinical / Credentialed</th>
+            <th>Path B — Community / Informal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Credentials</strong></td>
+            <td><span class="path-a">Yes</span>, if you want to provide licensed counseling or bill clinically.</td>
+            <td><span class="path-b">No</span>, though basic safety training is strongly recommended.</td>
+          </tr>
+          <tr>
+            <td><strong>Admin load</strong></td>
+            <td>Moderate to high: documentation, ethics, compliance, supervision.</td>
+            <td>Low: coordination, communication, safety planning, consistency.</td>
+          </tr>
+          <tr>
+            <td><strong>Income</strong></td>
+            <td>Can become a stable profession over time, depending on role and licensure.</td>
+            <td>May stay volunteer-based or only cover expenses — and can still matter deeply.</td>
+          </tr>
+          <tr>
+            <td><strong>Time to start</strong></td>
+            <td>Longer. Usually unfolds in stages over several years.</td>
+            <td><span class="path-b">Now.</span> You can begin by leading one safe walk.</td>
+          </tr>
+          <tr>
+            <td><strong>What it gives</strong></td>
+            <td>Clinical impact, career stability, and a formal lane to serve.</td>
+            <td>Community, purpose, belonging, and lives changed through steady presence.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- 90 DAYS -->
+  <div class="ninety-section">
+    <h2>A Practical Next 90 Days</h2>
+    <p class="sub">If the goal is simply to begin, this is enough.</p>
+    <div class="ninety-steps">
+      <div class="ninety-step"><div class="n">1</div><p>Stay close to the recovery practices that are already working.</p></div>
+      <div class="ninety-step"><div class="n">2</div><p>Plan one small outdoor outing and keep it easy.</p></div>
+      <div class="ninety-step"><div class="n">3</div><p>Invite only a few people you trust.</p></div>
+      <div class="ninety-step"><div class="n">4</div><p>Write down what happened and how it felt.</p></div>
+      <div class="ninety-step"><div class="n">5</div><p>Repeat it.</p></div>
+      <div class="ninety-step"><div class="n">→</div><p>Only after consistency appears should you think about websites, structure, training, or formal pathways.</p></div>
+    </div>
+    <p class="ninety-note">None of this requires you to have everything figured out. It requires you to take the next honest step.</p>
+  </div>
+
+  <!-- FINAL WORD -->
+  <div class="final-word">
+    <h2>None of this requires you to have<br>everything figured out.</h2>
+    <blockquote>"You do not need to see the summit.<br>You only need to take the next walk."</blockquote>
+    <p>The man you are becoming in sobriety, health, and integrity is the real message to other people.</p>
+    <p>Everything in this roadmap is simply one possible shape that life could take.</p>
+    <p class="final-site">jvoadventures.com</p>
+  </div>
+
+</div>
+
+</body>
+</html>
