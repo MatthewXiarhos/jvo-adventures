@@ -39,9 +39,15 @@ function difficultyBadge(d) {
   return `<span class="badge" style="background:${bg};color:${fg}">${d || 'easy'}</span>`;
 }
 
+// ─── PAGE LINKS (map event id to a dedicated page) ────────────────────────
+const EVENT_PAGES = {
+  'evt-001': 'ravenswood.html',
+};
+
 // ─── RENDER EVENT CARD ────────────────────────────────────────────────────
 function renderEventCard(e, compact = false, isPast = false) {
   const signupUrl = `${CONFIG.TALLY_SIGNUP_BASE}?event_id=${e.id}&event_name=${encodeURIComponent(e.title)}&event_date=${encodeURIComponent(formatDate(e.date))}`;
+  const detailPage = EVENT_PAGES[e.id];
   const imgHtml = e.photo
     ? `<div class="event-img" style="background-image:url('${e.photo}')"></div>`
     : `<div class="event-img event-img-placeholder"><span>${typeLabel(e.type).split(' ')[0]}</span></div>`;
@@ -49,8 +55,9 @@ function renderEventCard(e, compact = false, isPast = false) {
   const pastClass = isPast ? ' event-card--past' : '';
 
   if (compact) {
+    const clickAction = detailPage ? `window.location='${detailPage}'` : `openEventModal('${e.id}')`;
     return `
-    <div class="event-card event-card--compact${pastClass}" onclick="openEventModal('${e.id}')">
+    <div class="event-card event-card--compact${pastClass}" onclick="${clickAction}" style="cursor:pointer">
       ${imgHtml}
       <div class="event-card-body">
         <div class="event-meta">
@@ -77,7 +84,10 @@ function renderEventCard(e, compact = false, isPast = false) {
       <p class="event-location">📍 ${e.location}</p>
       <p class="event-desc">${e.description || ''}</p>
       ${e.spots ? `<p class="event-spots">👥 ${e.spots} spots available</p>` : ''}
-      ${!isPast ? `<a href="${signupUrl}" target="_blank" class="btn btn-primary event-signup-btn">Sign Up for This Trip</a>` : '<span class="past-tag">Past trip</span>'}
+      ${!isPast ? `
+        ${detailPage ? `<a href="${detailPage}" class="btn btn-outline event-signup-btn" style="display:block;text-align:center;margin-bottom:0.5rem">See Photos & Details</a>` : ''}
+        <a href="${signupUrl}" target="_blank" class="btn btn-primary event-signup-btn">Sign Up for This Trip</a>
+      ` : '<span class="past-tag">Past trip</span>'}
     </div>
   </div>`;
 }
