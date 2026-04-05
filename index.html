@@ -11,7 +11,6 @@
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">JVO<span>Adventures</span></a>
   <div class="nav-links">
@@ -22,7 +21,6 @@
   <a href="events.html" class="nav-cta">Join a Trip</a>
 </nav>
 
-<!-- HERO -->
 <header class="hero">
   <div class="hero-texture"></div>
   <div class="hero-content">
@@ -37,7 +35,6 @@
   <div class="hero-scroll-hint">↓</div>
 </header>
 
-<!-- MISSION STRIP -->
 <section class="mission-strip">
   <div class="container">
     <blockquote>
@@ -46,7 +43,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="container about-grid">
     <div class="about-text">
@@ -76,7 +72,6 @@
   </div>
 </section>
 
-<!-- ACTIVITIES -->
 <section class="activities">
   <div class="container">
     <span class="section-label">What We Do</span>
@@ -106,7 +101,6 @@
   </div>
 </section>
 
-<!-- UPCOMING EVENTS PREVIEW -->
 <section class="events-preview" id="events">
   <div class="container">
     <div class="events-preview-header">
@@ -122,7 +116,6 @@
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="container contact-inner">
     <div>
@@ -138,24 +131,21 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="container">
     <p class="footer-logo">JVO Adventures</p>
     <p>jvoadventures.com &nbsp;·&nbsp; Marblehead, MA</p>
     <p class="footer-tagline">"You don't need to see the summit. Just take the next step."</p>
-    <a href="admin/index.html" class="footer-admin-link">Admin</a>
+    <a href="admin.html" class="footer-admin-link">Admin</a>
   </div>
 </footer>
 
-<script src="js/events.js"></script>
+<script src="events.js"></script>
 <script>
-  // Load preview of first 3 events on homepage
   document.addEventListener('DOMContentLoaded', async () => {
     const container = document.getElementById('events-preview-list');
     const events = await loadEvents();
     const upcoming = events.filter(e => new Date(e.date) >= new Date()).slice(0, 3);
-    
     if (upcoming.length === 0) {
       container.innerHTML = '<p class="loading-text">No upcoming trips yet — check back soon.</p>';
       return;

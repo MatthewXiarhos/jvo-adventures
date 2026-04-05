@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -32,7 +32,7 @@
 <section class="events-full">
   <div class="container">
     <div id="events-list" class="events-full-grid">
-      <p class="loading-text">Loading trips...</p>
+      <p class="loading-text" style="color:#666;">Loading trips...</p>
     </div>
     <div id="no-events" style="display:none;" class="no-events">
       <p>No upcoming trips at the moment.</p>
@@ -41,7 +41,6 @@
   </div>
 </section>
 
-<!-- EVENT DETAIL MODAL -->
 <div id="event-modal" class="modal-overlay" style="display:none;">
   <div class="modal">
     <button class="modal-close" onclick="closeModal()">✕</button>
@@ -57,26 +56,23 @@
   </div>
 </footer>
 
-<script src="js/events.js"></script>
+<script src="events.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', async () => {
   const list = document.getElementById('events-list');
   const noEvents = document.getElementById('no-events');
-  
   const events = await loadEvents();
   const upcoming = events.filter(e => new Date(e.date) >= new Date());
   const past = events.filter(e => new Date(e.date) < new Date());
-  
+
   if (upcoming.length === 0 && past.length === 0) {
     list.style.display = 'none';
     noEvents.style.display = 'block';
     return;
   }
-  
+
   let html = '';
-  if (upcoming.length > 0) {
-    html += upcoming.map(e => renderEventCard(e, false)).join('');
-  }
+  if (upcoming.length > 0) html += upcoming.map(e => renderEventCard(e, false)).join('');
   if (past.length > 0) {
     html += `<h3 class="past-label">Past Trips</h3>`;
     html += past.map(e => renderEventCard(e, false, true)).join('');
