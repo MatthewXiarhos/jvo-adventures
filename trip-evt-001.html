@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Hike — Ravenswood Park — JVO Adventures</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{min-height:52vh;background:linear-gradient(160deg,#1e3a2f,#2d5a42 60%,#1a4a35);display:flex;flex-direction:column;justify-content:flex-end;padding:16rem 2rem 3rem;position:relative;overflow:hidden;}
+.pht{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.phc{position:relative;z-index:1;max-width:700px;}
+.bc{font-size:0.78rem;letter-spacing:.1em;text-transform:uppercase;color:#6aab84;margin-bottom:.75rem;display:block;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:#fff;line-height:1.15;margin-bottom:1rem;}
+.hm{display:flex;flex-wrap:wrap;gap:1.25rem;}.hmi{font-size:.9rem;color:rgba(255,255,255,.7);}.hmi strong{color:#fff;}
+.sw{position:relative;background:#111;}.sl{display:none;position:relative;width:100%;}.sl.active{display:block;}
+.sl img{width:100%;height:clamp(320px,60vw,680px);object-fit:cover;display:block;opacity:0;transition:opacity .5s;}.sl img.ld{opacity:1;}
+.sc{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.72));padding:3rem 2rem 1.5rem;color:#fff;}
+.sc h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.25rem;}.sc p{font-size:.88rem;color:rgba(255,255,255,.72);}
+.sp,.sn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;z-index:10;}
+.sp{left:1rem;}.sn{right:1rem;}
+.sdots{display:flex;justify-content:center;gap:.5rem;padding:1.25rem 0 .5rem;background:#111;}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;border:none;transition:all .2s;}.dot.active{background:#6aab84;transform:scale(1.3);}
+.sct{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,.45);color:#fff;font-size:.8rem;padding:.3rem .75rem;border-radius:50px;z-index:10;}
+.ts{display:flex;gap:4px;overflow-x:auto;background:#111;padding:4px 4px 1rem;scrollbar-width:none;}.ts::-webkit-scrollbar{display:none;}
+.th{flex-shrink:0;width:80px;height:56px;object-fit:cover;cursor:pointer;opacity:.45;transition:opacity .2s;border-radius:4px;}.th.active{opacity:1;outline:2px solid #6aab84;}
+.ti{padding:4rem 0;max-width:900px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem;}
+.tsg{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:2rem;}
+.tsc{background:#ede9df;border-radius:12px;padding:1rem 1.25rem;}
+.tsl{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:#6b6b6b;margin-bottom:.3rem;}
+.tsv{font-size:1.1rem;font-weight:600;color:#1e3a2f;font-family:'Playfair Display',serif;}
+.td{font-size:1.05rem;color:#6b6b6b;line-height:1.8;max-width:680px;margin-bottom:2rem;}
+.ss{background:#1e3a2f;padding:4rem 0;text-align:center;}
+.ss h2{font-family:'Playfair Display',serif;color:#fff;font-size:2rem;margin-bottom:.75rem;}
+.ss p{color:rgba(255,255,255,.65);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;}
+.sb{background:#6aab84;color:#1e3a2f;font-weight:600;display:inline-block;padding:.9rem 2rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:1rem;text-decoration:none;}
+@media(max-width:640px){.tsg{grid-template-columns:1fr 1fr;}.nav-links{display:none;}}
+</style></head><body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="logo.jpg" alt="JVO Adventures" style="height:200px;width:auto;display:block;"></a>
+  <div class="nav-links"><a href="index.html#about">About</a><a href="events.html">Events</a><a href="index.html#contact">Contact</a></div>
+  <a href="https://tally.so/r/SIGNUP_FORM_ID?event_id=evt-001&event_name=Spring%20Hike%20—%20Ravenswood%20Park&event_date=Sunday,%20April%2019,%202026" target="_blank" class="nav-cta">Sign Up</a>
+</nav>
+<div class="page-hero">
+  <div class="pht"></div>
+  <div class="phc">
+    <span class="bc"><a href="events.html" style="color:#6aab84;">← Back to Events</a></span>
+    <h1>Spring Hike — Ravenswood Park</h1>
+    <div class="hm">
+      <div class="hmi">📅 <strong>Sunday, April 19, 2026</strong></div>
+      <div class="hmi">🕘 <strong>9:00 AM</strong></div>
+      <div class="hmi">🥾 Hiking</div>
+      <div class="hmi">👥 <strong>8 spots</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="sw">
+  <div class="sct"><span id="cur">1</span> / <span id="tot">11</span></div>
+  <div class="sl active" data-c="Rocky forest trail" data-d="The classic Ravenswood trail winding through moss-covered boulders"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423444/Ravenswood-Park_zf0kfx.jpg" alt="Rocky forest trail"></div>
+<div class="sl" data-c="Glacial erratic" data-d="A massive glacial erratic deposited here thousands of years ago"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423440/Ravenswood-boulder_mpleqc.jpg" alt="Glacial erratic"></div>
+<div class="sl" data-c="Fall foliage from Ledge Hill" data-d="Views stretch out to Gloucester Harbor and beyond on clear days"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423435/724D382F-FDA0-4B78-8A94-67EE7FF4C8C3-scaled_kvtufe.jpg" alt="Fall foliage from Ledge Hill"></div>
+<div class="sl" data-c="Boulder field" data-d="One of New England's most striking glacial landscapes"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423441/Ravenswood-boulders-608x0-c-default_cjw5vk.jpg" alt="Boulder field"></div>
+<div class="sl" data-c="Autumn foliage" data-d="Ravenswood is spectacular in fall — reds, oranges, and gold through 600 acres"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423442/Ravenswood-foliage-608x0-c-default_huwhxt.jpg" alt="Autumn foliage"></div>
+<div class="sl" data-c="Cathedral forest" data-d="Towering pines and hemlocks create a cathedral-like canopy"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423443/Ravenswood-forest-608x0-c-default_i9cecc.jpg" alt="Cathedral forest"></div>
+<div class="sl" data-c="Rock outcroppings" data-d="Granite ledges offer natural rest spots and views"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423445/Ravenswood-rocks-608x0-c-default_i8juek.jpg" alt="Rock outcroppings"></div>
+<div class="sl" data-c="The trail ahead" data-d="Well-marked trails make Ravenswood accessible for all skill levels"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423446/Ravenswood-trail-608x0-c-default_uefaaf.jpg" alt="The trail ahead"></div>
+<div class="sl" data-c="Ravenswood Park" data-d="481 Western Ave (Route 127), Gloucester — 600 acres managed by The Trustees"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423439/Ravenswood2_yujr8p.jpg" alt="Ravenswood Park"></div>
+<div class="sl" data-c="Along the path" data-d="A comfortable loop through the heart of the park"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423437/IMG_1143-scaled_td29li.jpg" alt="Along the path"></div>
+<div class="sl" data-c="Forest floor" data-d="Rich woodland ecology — ferns, lichen-covered boulders, and birdsong"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423438/IMG_3841-scaled_ncogmv.jpg" alt="Forest floor"></div>
+
+  <button class="sp" onclick="mv(-1)">&#8592;</button>
+  <button class="sn" onclick="mv(1)">&#8594;</button>
+  <div class="sc"><h3 id="ct">Rocky forest trail</h3><p id="cd">The classic Ravenswood trail winding through moss-covered boulders</p></div>
+</div>
+<div class="sdots" id="dots"></div>
+<div class="ts" id="ths"></div>
+<section class="ti">
+  <div class="tsg">
+    <div class="tsc"><div class="tsl">Date</div><div class="tsv">Apr 19, 2026</div></div>
+    <div class="tsc"><div class="tsl">Time</div><div class="tsv">9:00 AM</div></div>
+    <div class="tsc"><div class="tsl">Difficulty</div><div class="tsv">Easy</div></div>
+    <div class="tsc"><div class="tsl">Spots</div><div class="tsv">8</div></div>
+  </div>
+  <p class="td">A beautiful loop through coastal forest. We'll stop midway for coffee and a chance to talk. No experience needed — just bring water and good shoes.</p>
+  <div style="background:#ede9df;border-radius:14px;padding:1.25rem;">
+    <p style="font-size:.85rem;font-weight:600;color:#2a2a2a;margin-bottom:.4rem;">📍 Location</p>
+    <p style="font-size:.9rem;color:#6b6b6b;margin:0;">Ravenswood Park, Gloucester, MA</p>
+  </div>
+</section>
+<div class="ss">
+  <h2>Ready to come along?</h2>
+  <p>Sign up takes 30 seconds — Johnny will be in touch with final details closer to the date.</p>
+  <a href="https://tally.so/r/SIGNUP_FORM_ID?event_id=evt-001&event_name=Spring%20Hike%20—%20Ravenswood%20Park&event_date=Sunday,%20April%2019,%202026" target="_blank" class="sb">Sign Up for This Trip</a>
+</div>
+<footer class="footer"><div class="container">
+  <img src="logo.jpg" alt="JVO Adventures" style="height:60px;width:auto;margin:0 auto .75rem;display:block;opacity:.9;">
+  <p>jvoadventures.com &nbsp;·&nbsp; Marblehead, MA</p>
+  <p class="footer-tagline">"You don't need to see the summit. Just take the next step."</p>
+</div></footer>
+<script>
+const sls=document.querySelectorAll('.sl'),de=document.getElementById('dots'),te=document.getElementById('ths');
+const ph=[{"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423444/Ravenswood-Park_zf0kfx.jpg", "caption": "Rocky forest trail", "desc": "The classic Ravenswood trail winding through moss-covered boulders"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423440/Ravenswood-boulder_mpleqc.jpg", "caption": "Glacial erratic", "desc": "A massive glacial erratic deposited here thousands of years ago"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423435/724D382F-FDA0-4B78-8A94-67EE7FF4C8C3-scaled_kvtufe.jpg", "caption": "Fall foliage from Ledge Hill", "desc": "Views stretch out to Gloucester Harbor and beyond on clear days"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423441/Ravenswood-boulders-608x0-c-default_cjw5vk.jpg", "caption": "Boulder field", "desc": "One of New England's most striking glacial landscapes"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423442/Ravenswood-foliage-608x0-c-default_huwhxt.jpg", "caption": "Autumn foliage", "desc": "Ravenswood is spectacular in fall \u2014 reds, oranges, and gold through 600 acres"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423443/Ravenswood-forest-608x0-c-default_i9cecc.jpg", "caption": "Cathedral forest", "desc": "Towering pines and hemlocks create a cathedral-like canopy"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423445/Ravenswood-rocks-608x0-c-default_i8juek.jpg", "caption": "Rock outcroppings", "desc": "Granite ledges offer natural rest spots and views"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423446/Ravenswood-trail-608x0-c-default_uefaaf.jpg", "caption": "The trail ahead", "desc": "Well-marked trails make Ravenswood accessible for all skill levels"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423439/Ravenswood2_yujr8p.jpg", "caption": "Ravenswood Park", "desc": "481 Western Ave (Route 127), Gloucester \u2014 600 acres managed by The Trustees"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423437/IMG_1143-scaled_td29li.jpg", "caption": "Along the path", "desc": "A comfortable loop through the heart of the park"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423438/IMG_3841-scaled_ncogmv.jpg", "caption": "Forest floor", "desc": "Rich woodland ecology \u2014 ferns, lichen-covered boulders, and birdsong"}];
+let c=0,tmr;
+ph.forEach((p,i)=>{
+  const d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=()=>gt(i);de.appendChild(d);
+  const th=document.createElement('img');th.src=p.url;th.className='th'+(i===0?' active':'');th.onclick=()=>gt(i);te.appendChild(th);
+});
+function gt(n){
+  sls[c].classList.remove('active');document.querySelectorAll('.dot')[c].classList.remove('active');document.querySelectorAll('.th')[c].classList.remove('active');
+  c=(n+sls.length)%sls.length;
+  sls[c].classList.add('active');document.querySelectorAll('.dot')[c].classList.add('active');
+  const th=document.querySelectorAll('.th')[c];th.classList.add('active');th.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  document.getElementById('ct').textContent=ph[c].caption||'';document.getElementById('cd').textContent=ph[c].desc||'';
+  document.getElementById('cur').textContent=c+1;
+  const img=sls[c].querySelector('img');if(img.complete)img.classList.add('ld');else img.onload=()=>img.classList.add('ld');
+  clearInterval(tmr);tmr=setInterval(()=>gt(c+1),5000);
+}
+function mv(d){gt(c+d);}
+document.querySelector('.sw').addEventListener('touchstart',e=>window._x=e.touches[0].clientX);
+document.querySelector('.sw').addEventListener('touchend',e=>{const d=window._x-e.changedTouches[0].clientX;if(Math.abs(d)>40)mv(d>0?1:-1);});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')mv(-1);if(e.key==='ArrowRight')mv(1);});
+const fi=sls[0].querySelector('img');if(fi.complete)fi.classList.add('ld');else fi.onload=()=>fi.classList.add('ld');
+tmr=setInterval(()=>gt(c+1),5000);
+</script>
+</body></html>

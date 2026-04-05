@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Fishing — Salem Willows — JVO Adventures</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{min-height:52vh;background:linear-gradient(160deg,#1e3a2f,#2d5a42 60%,#1a4a35);display:flex;flex-direction:column;justify-content:flex-end;padding:16rem 2rem 3rem;position:relative;overflow:hidden;}
+.pht{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.phc{position:relative;z-index:1;max-width:700px;}
+.bc{font-size:0.78rem;letter-spacing:.1em;text-transform:uppercase;color:#6aab84;margin-bottom:.75rem;display:block;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:#fff;line-height:1.15;margin-bottom:1rem;}
+.hm{display:flex;flex-wrap:wrap;gap:1.25rem;}.hmi{font-size:.9rem;color:rgba(255,255,255,.7);}.hmi strong{color:#fff;}
+.sw{position:relative;background:#111;}.sl{display:none;position:relative;width:100%;}.sl.active{display:block;}
+.sl img{width:100%;height:clamp(320px,60vw,680px);object-fit:cover;display:block;opacity:0;transition:opacity .5s;}.sl img.ld{opacity:1;}
+.sc{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.72));padding:3rem 2rem 1.5rem;color:#fff;}
+.sc h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.25rem;}.sc p{font-size:.88rem;color:rgba(255,255,255,.72);}
+.sp,.sn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;z-index:10;}
+.sp{left:1rem;}.sn{right:1rem;}
+.sdots{display:flex;justify-content:center;gap:.5rem;padding:1.25rem 0 .5rem;background:#111;}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;border:none;transition:all .2s;}.dot.active{background:#6aab84;transform:scale(1.3);}
+.sct{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,.45);color:#fff;font-size:.8rem;padding:.3rem .75rem;border-radius:50px;z-index:10;}
+.ts{display:flex;gap:4px;overflow-x:auto;background:#111;padding:4px 4px 1rem;scrollbar-width:none;}.ts::-webkit-scrollbar{display:none;}
+.th{flex-shrink:0;width:80px;height:56px;object-fit:cover;cursor:pointer;opacity:.45;transition:opacity .2s;border-radius:4px;}.th.active{opacity:1;outline:2px solid #6aab84;}
+.ti{padding:4rem 0;max-width:900px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem;}
+.tsg{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:2rem;}
+.tsc{background:#ede9df;border-radius:12px;padding:1rem 1.25rem;}
+.tsl{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:#6b6b6b;margin-bottom:.3rem;}
+.tsv{font-size:1.1rem;font-weight:600;color:#1e3a2f;font-family:'Playfair Display',serif;}
+.td{font-size:1.05rem;color:#6b6b6b;line-height:1.8;max-width:680px;margin-bottom:2rem;}
+.ss{background:#1e3a2f;padding:4rem 0;text-align:center;}
+.ss h2{font-family:'Playfair Display',serif;color:#fff;font-size:2rem;margin-bottom:.75rem;}
+.ss p{color:rgba(255,255,255,.65);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;}
+.sb{background:#6aab84;color:#1e3a2f;font-weight:600;display:inline-block;padding:.9rem 2rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:1rem;text-decoration:none;}
+@media(max-width:640px){.tsg{grid-template-columns:1fr 1fr;}.nav-links{display:none;}}
+</style></head><body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="logo.jpg" alt="JVO Adventures" style="height:200px;width:auto;display:block;"></a>
+  <div class="nav-links"><a href="index.html#about">About</a><a href="events.html">Events</a><a href="index.html#contact">Contact</a></div>
+  <a href="https://tally.so/r/SIGNUP_FORM_ID?event_id=evt-002&event_name=Morning%20Fishing%20—%20Salem%20Willows&event_date=Sunday,%20May%203,%202026" target="_blank" class="nav-cta">Sign Up</a>
+</nav>
+<div class="page-hero">
+  <div class="pht"></div>
+  <div class="phc">
+    <span class="bc"><a href="events.html" style="color:#6aab84;">← Back to Events</a></span>
+    <h1>Morning Fishing — Salem Willows</h1>
+    <div class="hm">
+      <div class="hmi">📅 <strong>Sunday, May 3, 2026</strong></div>
+      <div class="hmi">🕘 <strong>7:00 AM</strong></div>
+      <div class="hmi">🎣 Fishing</div>
+      <div class="hmi">👥 <strong>6 spots</strong></div>
+    </div>
+  </div>
+</div>
+
+<div class="sw">
+  <div class="sct"><span id="cur">1</span> / <span id="tot">10</span></div>
+  <div class="sl active" data-c="Salem Willows" data-d="A historic seaside park with sweeping views of Salem Harbor"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423404/Salem-Willows_r6wkkl.jpg" alt="Salem Willows"></div>
+<div class="sl" data-c="Sunrise over the water" data-d="Early morning light on Salem Harbor — worth the 7am start"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423403/sunrise_upfn2u.jpg" alt="Sunrise over the water"></div>
+<div class="sl" data-c="Sailboats in the harbor" data-d="Salem Harbor on a calm morning"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423403/sail_waywvt.jpg" alt="Sailboats in the harbor"></div>
+<div class="sl" data-c="Spring blooms" data-d="The park is beautiful in May — wildflowers along the waterfront"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423404/Salem-Willows-Flowers-scaled-1_fcj99x.jpg" alt="Spring blooms"></div>
+<div class="sl" data-c="The willows" data-d="The park's iconic weeping willows that give it its name"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423406/willows_lfrjzg.webp" alt="The willows"></div>
+<div class="sl" data-c="Waterfront view" data-d="Looking out over the harbor from the fishing pier"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423406/willows2_qwb4cw.webp" alt="Waterfront view"></div>
+<div class="sl" data-c="Aerial view" data-d="Salem Willows from above — the peninsula jutting into Salem Harbor"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423402/overhead_muog1q.jpg" alt="Aerial view"></div>
+<div class="sl" data-c="The pier" data-d="Where we'll set up and fish for the morning"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423401/images_ntfvre.jpg" alt="The pier"></div>
+<div class="sl" data-c="Park grounds" data-d="Plenty of space to spread out, relax, and enjoy the morning"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423400/348s_ns52io.jpg" alt="Park grounds"></div>
+<div class="sl" data-c="Morning light" data-d="Salem Willows is magical in the early hours"><img src="https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423400/258s_uotdag.jpg" alt="Morning light"></div>
+
+  <button class="sp" onclick="mv(-1)">&#8592;</button>
+  <button class="sn" onclick="mv(1)">&#8594;</button>
+  <div class="sc"><h3 id="ct">Salem Willows</h3><p id="cd">A historic seaside park with sweeping views of Salem Harbor</p></div>
+</div>
+<div class="sdots" id="dots"></div>
+<div class="ts" id="ths"></div>
+<section class="ti">
+  <div class="tsg">
+    <div class="tsc"><div class="tsl">Date</div><div class="tsv">May 3, 2026</div></div>
+    <div class="tsc"><div class="tsl">Time</div><div class="tsv">7:00 AM</div></div>
+    <div class="tsc"><div class="tsl">Difficulty</div><div class="tsv">Easy</div></div>
+    <div class="tsc"><div class="tsl">Spots</div><div class="tsv">6</div></div>
+  </div>
+  <p class="td">Early morning fishing off the pier. Gear available for those who need it. We'll grab breakfast after. This is as relaxed as it gets.</p>
+  <div style="background:#ede9df;border-radius:14px;padding:1.25rem;">
+    <p style="font-size:.85rem;font-weight:600;color:#2a2a2a;margin-bottom:.4rem;">📍 Location</p>
+    <p style="font-size:.9rem;color:#6b6b6b;margin:0;">Salem Willows Park, Salem, MA</p>
+  </div>
+</section>
+<div class="ss">
+  <h2>Ready to come along?</h2>
+  <p>Sign up takes 30 seconds — Johnny will be in touch with final details closer to the date.</p>
+  <a href="https://tally.so/r/SIGNUP_FORM_ID?event_id=evt-002&event_name=Morning%20Fishing%20—%20Salem%20Willows&event_date=Sunday,%20May%203,%202026" target="_blank" class="sb">Sign Up for This Trip</a>
+</div>
+<footer class="footer"><div class="container">
+  <img src="logo.jpg" alt="JVO Adventures" style="height:60px;width:auto;margin:0 auto .75rem;display:block;opacity:.9;">
+  <p>jvoadventures.com &nbsp;·&nbsp; Marblehead, MA</p>
+  <p class="footer-tagline">"You don't need to see the summit. Just take the next step."</p>
+</div></footer>
+<script>
+const sls=document.querySelectorAll('.sl'),de=document.getElementById('dots'),te=document.getElementById('ths');
+const ph=[{"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423404/Salem-Willows_r6wkkl.jpg", "caption": "Salem Willows", "desc": "A historic seaside park with sweeping views of Salem Harbor"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423403/sunrise_upfn2u.jpg", "caption": "Sunrise over the water", "desc": "Early morning light on Salem Harbor \u2014 worth the 7am start"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423403/sail_waywvt.jpg", "caption": "Sailboats in the harbor", "desc": "Salem Harbor on a calm morning"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423404/Salem-Willows-Flowers-scaled-1_fcj99x.jpg", "caption": "Spring blooms", "desc": "The park is beautiful in May \u2014 wildflowers along the waterfront"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423406/willows_lfrjzg.webp", "caption": "The willows", "desc": "The park's iconic weeping willows that give it its name"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423406/willows2_qwb4cw.webp", "caption": "Waterfront view", "desc": "Looking out over the harbor from the fishing pier"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423402/overhead_muog1q.jpg", "caption": "Aerial view", "desc": "Salem Willows from above \u2014 the peninsula jutting into Salem Harbor"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423401/images_ntfvre.jpg", "caption": "The pier", "desc": "Where we'll set up and fish for the morning"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423400/348s_ns52io.jpg", "caption": "Park grounds", "desc": "Plenty of space to spread out, relax, and enjoy the morning"}, {"url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423400/258s_uotdag.jpg", "caption": "Morning light", "desc": "Salem Willows is magical in the early hours"}];
+let c=0,tmr;
+ph.forEach((p,i)=>{
+  const d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=()=>gt(i);de.appendChild(d);
+  const th=document.createElement('img');th.src=p.url;th.className='th'+(i===0?' active':'');th.onclick=()=>gt(i);te.appendChild(th);
+});
+function gt(n){
+  sls[c].classList.remove('active');document.querySelectorAll('.dot')[c].classList.remove('active');document.querySelectorAll('.th')[c].classList.remove('active');
+  c=(n+sls.length)%sls.length;
+  sls[c].classList.add('active');document.querySelectorAll('.dot')[c].classList.add('active');
+  const th=document.querySelectorAll('.th')[c];th.classList.add('active');th.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  document.getElementById('ct').textContent=ph[c].caption||'';document.getElementById('cd').textContent=ph[c].desc||'';
+  document.getElementById('cur').textContent=c+1;
+  const img=sls[c].querySelector('img');if(img.complete)img.classList.add('ld');else img.onload=()=>img.classList.add('ld');
+  clearInterval(tmr);tmr=setInterval(()=>gt(c+1),5000);
+}
+function mv(d){gt(c+d);}
+document.querySelector('.sw').addEventListener('touchstart',e=>window._x=e.touches[0].clientX);
+document.querySelector('.sw').addEventListener('touchend',e=>{const d=window._x-e.changedTouches[0].clientX;if(Math.abs(d)>40)mv(d>0?1:-1);});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')mv(-1);if(e.key==='ArrowRight')mv(1);});
+const fi=sls[0].querySelector('img');if(fi.complete)fi.classList.add('ld');else fi.onload=()=>fi.classList.add('ld');
+tmr=setInterval(()=>gt(c+1),5000);
+</script>
+</body></html>
