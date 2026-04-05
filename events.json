@@ -1,34 +1,78 @@
 [
   {
     "id": "evt-001",
-    "title": "Spring Hike — Ravenswood Park",
+    "title": "Spring Hike \u2014 Ravenswood Park",
     "type": "hike",
     "date": "2026-04-19",
     "time": "9:00 AM",
     "location": "Ravenswood Park, Gloucester, MA",
-    "description": "A beautiful loop through coastal forest. We'll stop midway for coffee and a chance to talk. No experience needed — just bring water and good shoes.",
+    "description": "A beautiful loop through coastal forest. We'll stop midway for coffee and a chance to talk. No experience needed \u2014 just bring water and good shoes.",
     "difficulty": "easy",
     "spots": 8,
     "enabled": true,
     "tripPage": true,
     "photo": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423444/Ravenswood-Park_zf0kfx.jpg",
     "photos": [
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423444/Ravenswood-Park_zf0kfx.jpg", "caption": "Rocky forest trail", "desc": "The classic Ravenswood trail winding through moss-covered boulders" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423440/Ravenswood-boulder_mpleqc.jpg", "caption": "Glacial erratic", "desc": "A massive glacial erratic deposited here thousands of years ago" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423435/724D382F-FDA0-4B78-8A94-67EE7FF4C8C3-scaled_kvtufe.jpg", "caption": "Fall foliage from Ledge Hill", "desc": "Views stretch out to Gloucester Harbor and beyond on clear days" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423441/Ravenswood-boulders-608x0-c-default_cjw5vk.jpg", "caption": "Boulder field", "desc": "One of New England's most striking glacial landscapes" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423442/Ravenswood-foliage-608x0-c-default_huwhxt.jpg", "caption": "Autumn foliage", "desc": "Ravenswood is spectacular in fall — reds, oranges, and gold through 600 acres" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423443/Ravenswood-forest-608x0-c-default_i9cecc.jpg", "caption": "Cathedral forest", "desc": "Towering pines and hemlocks create a cathedral-like canopy" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423445/Ravenswood-rocks-608x0-c-default_i8juek.jpg", "caption": "Rock outcroppings", "desc": "Granite ledges offer natural rest spots and views" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423446/Ravenswood-trail-608x0-c-default_uefaaf.jpg", "caption": "The trail ahead", "desc": "Well-marked trails make Ravenswood accessible for all skill levels" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423439/Ravenswood2_yujr8p.jpg", "caption": "Ravenswood Park", "desc": "481 Western Ave (Route 127), Gloucester — 600 acres managed by The Trustees" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423437/IMG_1143-scaled_td29li.jpg", "caption": "Along the path", "desc": "A comfortable loop through the heart of the park" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423438/IMG_3841-scaled_ncogmv.jpg", "caption": "Forest floor", "desc": "Rich woodland ecology — ferns, lichen-covered boulders, and birdsong" }
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423444/Ravenswood-Park_zf0kfx.jpg",
+        "caption": "Rocky forest trail",
+        "desc": "The classic Ravenswood trail winding through moss-covered boulders"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423440/Ravenswood-boulder_mpleqc.jpg",
+        "caption": "Glacial erratic",
+        "desc": "A massive glacial erratic deposited here thousands of years ago"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423435/724D382F-FDA0-4B78-8A94-67EE7FF4C8C3-scaled_kvtufe.jpg",
+        "caption": "Fall foliage from Ledge Hill",
+        "desc": "Views stretch out to Gloucester Harbor and beyond on clear days"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423441/Ravenswood-boulders-608x0-c-default_cjw5vk.jpg",
+        "caption": "Boulder field",
+        "desc": "One of New England's most striking glacial landscapes"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423442/Ravenswood-foliage-608x0-c-default_huwhxt.jpg",
+        "caption": "Autumn foliage",
+        "desc": "Ravenswood is spectacular in fall \u2014 reds, oranges, and gold through 600 acres"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423443/Ravenswood-forest-608x0-c-default_i9cecc.jpg",
+        "caption": "Cathedral forest",
+        "desc": "Towering pines and hemlocks create a cathedral-like canopy"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423445/Ravenswood-rocks-608x0-c-default_i8juek.jpg",
+        "caption": "Rock outcroppings",
+        "desc": "Granite ledges offer natural rest spots and views"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423446/Ravenswood-trail-608x0-c-default_uefaaf.jpg",
+        "caption": "The trail ahead",
+        "desc": "Well-marked trails make Ravenswood accessible for all skill levels"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423439/Ravenswood2_yujr8p.jpg",
+        "caption": "Ravenswood Park",
+        "desc": "481 Western Ave (Route 127), Gloucester \u2014 600 acres managed by The Trustees"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423437/IMG_1143-scaled_td29li.jpg",
+        "caption": "Along the path",
+        "desc": "A comfortable loop through the heart of the park"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423438/IMG_3841-scaled_ncogmv.jpg",
+        "caption": "Forest floor",
+        "desc": "Rich woodland ecology \u2014 ferns, lichen-covered boulders, and birdsong"
+      }
     ]
   },
   {
     "id": "evt-002",
-    "title": "Morning Fishing — Salem Willows",
+    "title": "Morning Fishing \u2014 Salem Willows",
     "type": "fish",
     "date": "2026-05-03",
     "time": "7:00 AM",
@@ -40,21 +84,61 @@
     "tripPage": true,
     "photo": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423404/Salem-Willows_r6wkkl.jpg",
     "photos": [
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423404/Salem-Willows_r6wkkl.jpg", "caption": "Salem Willows", "desc": "A historic seaside park with sweeping views of Salem Harbor" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423403/sunrise_upfn2u.jpg", "caption": "Sunrise over the water", "desc": "Early morning light on Salem Harbor — worth the 7am start" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423403/sail_waywvt.jpg", "caption": "Sailboats in the harbor", "desc": "Salem Harbor on a calm morning" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423404/Salem-Willows-Flowers-scaled-1_fcj99x.jpg", "caption": "Spring blooms", "desc": "The park is beautiful in May — wildflowers along the waterfront" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423406/willows_lfrjzg.webp", "caption": "The willows", "desc": "The park's iconic weeping willows that give it its name" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423406/willows2_qwb4cw.webp", "caption": "Waterfront view", "desc": "Looking out over the harbor from the fishing pier" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423402/overhead_muog1q.jpg", "caption": "Aerial view", "desc": "Salem Willows from above — the peninsula jutting into Salem Harbor" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423401/images_ntfvre.jpg", "caption": "The pier", "desc": "Where we'll set up and fish for the morning" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423400/348s_ns52io.jpg", "caption": "Park grounds", "desc": "Plenty of space to spread out, relax, and enjoy the morning" },
-      { "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423400/258s_uotdag.jpg", "caption": "Morning light", "desc": "Salem Willows is magical in the early hours" }
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423404/Salem-Willows_r6wkkl.jpg",
+        "caption": "Salem Willows",
+        "desc": "A historic seaside park with sweeping views of Salem Harbor"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423403/sunrise_upfn2u.jpg",
+        "caption": "Sunrise over the water",
+        "desc": "Early morning light on Salem Harbor \u2014 worth the 7am start"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423403/sail_waywvt.jpg",
+        "caption": "Sailboats in the harbor",
+        "desc": "Salem Harbor on a calm morning"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423404/Salem-Willows-Flowers-scaled-1_fcj99x.jpg",
+        "caption": "Spring blooms",
+        "desc": "The park is beautiful in May \u2014 wildflowers along the waterfront"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423406/willows_lfrjzg.webp",
+        "caption": "The willows",
+        "desc": "The park's iconic weeping willows that give it its name"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423406/willows2_qwb4cw.webp",
+        "caption": "Waterfront view",
+        "desc": "Looking out over the harbor from the fishing pier"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423402/overhead_muog1q.jpg",
+        "caption": "Aerial view",
+        "desc": "Salem Willows from above \u2014 the peninsula jutting into Salem Harbor"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423401/images_ntfvre.jpg",
+        "caption": "The pier",
+        "desc": "Where we'll set up and fish for the morning"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423400/348s_ns52io.jpg",
+        "caption": "Park grounds",
+        "desc": "Plenty of space to spread out, relax, and enjoy the morning"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775423400/258s_uotdag.jpg",
+        "caption": "Morning light",
+        "desc": "Salem Willows is magical in the early hours"
+      }
     ]
   },
   {
     "id": "evt-003",
-    "title": "Kayak Launch — Marblehead Harbor",
+    "title": "Kayak Launch \u2014 Marblehead Harbor",
     "type": "kayak",
     "date": "2026-05-24",
     "time": "10:00 AM",
@@ -63,8 +147,49 @@
     "difficulty": "moderate",
     "spots": 6,
     "enabled": true,
-    "tripPage": false,
-    "photo": "",
-    "photos": []
+    "tripPage": true,
+    "photo": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775428920/mhead_bqbwcs.jpg",
+    "photos": [
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775428920/mhead_bqbwcs.jpg",
+        "caption": "Marblehead Harbor",
+        "desc": "One of the most beautiful harbors on the New England coast"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775428806/Marbleheadma1649_sh4mw2.jpg",
+        "caption": "The harbor from above",
+        "desc": "Perfectly sheltered \u2014 ideal for kayaking at any skill level"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775428801/Marblehead_Morning_mfbdyq.jpg",
+        "caption": "Morning on the water",
+        "desc": "Early morning light on Marblehead Harbor \u2014 calm, quiet, and stunning"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775428796/images_udhj08.jpg",
+        "caption": "Classic New England harbor",
+        "desc": "Sailboats, lobster boats, and history around every corner"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775428791/harbor-light-beach_wrlcgq.webp",
+        "caption": "Harbor Light Beach",
+        "desc": "We'll launch near the lighthouse and paddle out into the harbor"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775428786/harbor_om5p6z.jpg",
+        "caption": "Out on the water",
+        "desc": "A relaxed pace with plenty of stops \u2014 no experience needed"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775428781/fall-in-marblehead-harbor_xrjosy.jpg",
+        "caption": "Fall in Marblehead Harbor",
+        "desc": "The harbor is stunning in any season"
+      },
+      {
+        "url": "https://res.cloudinary.com/dmo301ryq/image/upload/q_auto/f_auto/v1775428775/Abbot-Hall-Marblehead-by-Derrick-Mills-450x500_b3m0wu.jpg",
+        "caption": "Abbot Hall",
+        "desc": "Marblehead's historic town hall"
+      }
+    ]
   }
 ]
