@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trips & Events — JVO Adventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-logo">JVO<span>Adventures</span></a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="events.html" class="active">Events</a>
+    <a href="index.html#contact">Contact</a>
+  </div>
+  <a href="index.html#contact" class="nav-cta">Contact</a>
+</nav>
+
+<div class="page-header">
+  <div class="container">
+    <span class="section-label">Get Outside</span>
+    <h1>Upcoming Trips</h1>
+    <p>All abilities welcome. No experience required — just a willingness to show up.</p>
+  </div>
+</div>
+
+<section class="events-full">
+  <div class="container">
+    <div id="events-list" class="events-full-grid">
+      <p class="loading-text">Loading trips...</p>
+    </div>
+    <div id="no-events" style="display:none;" class="no-events">
+      <p>No upcoming trips at the moment.</p>
+      <p>Check back soon — new adventures are always being planned.</p>
+    </div>
+  </div>
+</section>
+
+<!-- EVENT DETAIL MODAL -->
+<div id="event-modal" class="modal-overlay" style="display:none;">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p class="footer-logo">JVO Adventures</p>
+    <p>jvoadventures.com &nbsp;·&nbsp; Marblehead, MA</p>
+    <p class="footer-tagline">"You don't need to see the summit. Just take the next step."</p>
+  </div>
+</footer>
+
+<script src="js/events.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  const list = document.getElementById('events-list');
+  const noEvents = document.getElementById('no-events');
+  
+  const events = await loadEvents();
+  const upcoming = events.filter(e => new Date(e.date) >= new Date());
+  const past = events.filter(e => new Date(e.date) < new Date());
+  
+  if (upcoming.length === 0 && past.length === 0) {
+    list.style.display = 'none';
+    noEvents.style.display = 'block';
+    return;
+  }
+  
+  let html = '';
+  if (upcoming.length > 0) {
+    html += upcoming.map(e => renderEventCard(e, false)).join('');
+  }
+  if (past.length > 0) {
+    html += `<h3 class="past-label">Past Trips</h3>`;
+    html += past.map(e => renderEventCard(e, false, true)).join('');
+  }
+  list.innerHTML = html;
+});
+
+function closeModal() {
+  document.getElementById('event-modal').style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+document.getElementById('event-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+</script>
+
+</body>
+</html>

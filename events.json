@@ -1,0 +1,38 @@
+[
+  {
+    "id": "evt-001",
+    "title": "Spring Hike — Ravenswood Park",
+    "type": "hike",
+    "date": "2026-04-19",
+    "time": "9:00 AM",
+    "location": "Ravenswood Park, Gloucester, MA",
+    "description": "A beautiful 4-mile loop through coastal forest. We'll stop midway for coffee and a chance to talk. No experience needed — just bring water and good shoes.",
+    "difficulty": "easy",
+    "spots": 8,
+    "photo": ""
+  },
+  {
+    "id": "evt-002",
+    "title": "Morning Fishing — Salem Willows",
+    "type": "fish",
+    "date": "2026-05-03",
+    "time": "7:00 AM",
+    "location": "Salem Willows Park, Salem, MA",
+    "description": "Early morning fishing off the pier. Gear available for those who need it. We'll grab breakfast after. This is as relaxed as it gets.",
+    "difficulty": "easy",
+    "spots": 6,
+    "photo": ""
+  },
+  {
+    "id": "evt-003",
+    "title": "Kayak Launch — Marblehead Harbor",
+    "type": "kayak",
+    "date": "2026-05-24",
+    "time": "10:00 AM",
+    "location": "Marblehead Harbor, Marblehead, MA",
+    "description": "A guided paddle around the harbor. Kayaks provided. We'll go at a relaxed pace with plenty of stops. You don't need to know how to kayak — just be willing to try.",
+    "difficulty": "moderate",
+    "spots": 6,
+    "photo": ""
+  }
+]
