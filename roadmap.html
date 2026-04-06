@@ -107,6 +107,55 @@ a { color: inherit; text-decoration: none; }
   .stage-header { flex-direction: column; gap: 0.5rem; }
   .glance-table td:nth-child(2) { display: none; }
 }
+
+/* ── PERSONAL NOTE ── */
+.personal-note {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  border-left: 4px solid var(--amber);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+.personal-note .salutation {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: var(--forest);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+.personal-note p {
+  color: var(--muted);
+  margin-bottom: 1rem;
+  font-size: 0.97rem;
+  line-height: 1.85;
+}
+.personal-note p:last-child { margin-bottom: 0; }
+.personal-note em { color: var(--forest); font-style: italic; }
+.note-closer {
+  color: var(--forest) !important;
+  font-size: 1.05rem !important;
+  margin-top: 0.5rem !important;
+}
+
+/* ── SIGNATURE ── */
+.signature-block {
+  text-align: right;
+  padding: 1.5rem 0.5rem 0;
+  margin-bottom: 1rem;
+}
+.sig-closer {
+  font-size: 0.92rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 0.75rem;
+}
+.sig-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  color: var(--forest);
+}
 </style>
 </head>
 <body>
@@ -128,6 +177,20 @@ a { color: inherit; text-decoration: none; }
 </div>
 
 <div class="main">
+
+  <!-- PERSONAL NOTE -->
+  <div class="personal-note">
+    <p class="salutation">Johnny,</p>
+    <p>Your vision for JVO Adventures is your compass. Through every moment, for the rest of your life, that vision will guide you. You will live with great clarity about who you are and where you are going — because you have something that is far more than a goal. It's an inspiration to do something meaningful and larger than yourself. An inspiration to save others.</p>
+    <p>You are a compass for the lost. A lighthouse shining in the darkest skies. For those who, like you, found themselves at a place where something deep within them finally wanted change.</p>
+    <p>Inspiration literally means <em>in spirit</em>. You can lead others by showing the light within you. You are in spirit — meaning you are aligned with your soul. To be aligned towards caring for others has no equal. It reminds you at every moment that something greater joins us when we choose a path to show others the way.</p>
+    <p>Being inspired by your goals means your soul tells you the direction to go at every turn. For every single decision. It answers every question. It points unerringly like a compass. The symbology of the compass in your name in the JVO Adventures logo is literal.</p>
+    <p class="note-closer"><strong>You are the compass for others.</strong></p>
+    <div class="signature-block">
+      <p class="sig-closer">With love and belief in everything you are becoming,</p>
+      <p class="sig-name">Uncle Matt</p>
+    </div>
+  </div>
 
   <!-- THE VISION -->
   <div class="vision-block">
@@ -198,7 +261,7 @@ a { color: inherit; text-decoration: none; }
 
       <h3>What You're Actually Building</h3>
       <ul>
-        <li>Your sobriety and personal stability — this is your real product</li>
+        <li>Your sobriety and personal stability — this is your true compass</li>
         <li>Trust with other men in recovery by being reliable and present</li>
         <li>A personal identity as the guy who takes people outdoors</li>
         <li>Stories, photos, and early testimonials for when you're ready</li>
@@ -389,10 +452,12 @@ a { color: inherit; text-decoration: none; }
   <div class="final-block">
     <h2>None of this requires you to have it all figured out.<br>It requires you to take the next walk.</h2>
     <blockquote>"You don't need to see the summit.<br>Just take the next step."</blockquote>
-    <p>The man you're becoming right now — in recovery, in sobriety, in honesty — that's the real product. Everything in this document is just the shape that product eventually takes in the world.</p>
+    <p>The man you're becoming right now — in recovery, in sobriety, in honesty — that's the role model. Everything in this document is just the shape that compass eventually takes in the world.</p>
     <p class="emphasis">You start small. With what you can manage. Right now.</p>
     <p class="final-site">jvoadventures.com</p>
   </div>
+
+
 
 </div>
 </body>
