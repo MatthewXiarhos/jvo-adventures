@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JVO Adventures — Local Admin</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:#f5f2eb;color:#2a2a2a;min-height:100vh;}
+.topbar{background:#1e3a2f;padding:1rem 1.5rem;display:flex;justify-content:space-between;align-items:center;}
+.topbar h1{color:#fff;font-size:1.1rem;font-weight:500;}
+.topbar-links{display:flex;gap:1.25rem;}
+.topbar-links a{color:#9ecfb4;font-size:0.85rem;text-decoration:none;}
+.topbar-links a:hover{color:#fff;}
+.local-badge{background:#6aab84;color:#1e3a2f;font-size:0.72rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:50px;letter-spacing:0.05em;}
+
+.body{padding:1.5rem;max-width:680px;margin:0 auto;}
+
+/* TABS */
+.tabs{display:flex;gap:0.5rem;margin-bottom:1.5rem;background:#fff;border-radius:12px;padding:0.4rem;border:1px solid #e0ddd4;}
+.tab{flex:1;padding:0.6rem;border-radius:8px;background:transparent;border:none;font-family:'DM Sans',sans-serif;font-size:0.88rem;cursor:pointer;font-weight:500;color:#666;transition:all 0.2s;}
+.tab.active{background:#2d7a4f;color:#fff;}
+
+/* FIELDS */
+.field{margin-bottom:1.1rem;}
+.field label{display:block;font-size:0.82rem;font-weight:500;color:#444;margin-bottom:0.35rem;text-transform:uppercase;letter-spacing:0.04em;}
+.field input,.field select,.field textarea{width:100%;padding:0.7rem 1rem;border:1.5px solid #ddd;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:1rem;background:#fff;color:#2a2a2a;transition:border-color 0.2s;-webkit-appearance:none;}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#2d7a4f;}
+.field textarea{min-height:90px;resize:vertical;line-height:1.6;}
+.half{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;}
+
+/* BUTTONS */
+.btn-green{background:#2d7a4f;color:#fff;width:100%;padding:0.9rem;border-radius:10px;font-size:1rem;font-weight:500;cursor:pointer;border:none;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
+.btn-green:hover{background:#235f3e;}
+.btn-outline{background:transparent;border:1.5px solid #2d7a4f;color:#2d7a4f;border-radius:10px;padding:0.5rem 0.9rem;font-size:0.85rem;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-outline:hover{background:#f0f8f4;}
+.btn-danger{background:transparent;border:1.5px solid #c0392b;color:#c0392b;border-radius:8px;padding:0.45rem 0.8rem;font-size:0.82rem;cursor:pointer;font-family:'DM Sans',sans-serif;}
+.btn-sm{padding:0.4rem 0.75rem;font-size:0.8rem;}
+.btn-download{background:#1e3a2f;color:#fff;border:none;border-radius:10px;padding:0.9rem 1.5rem;font-size:1rem;font-weight:500;cursor:pointer;font-family:'DM Sans',sans-serif;display:flex;align-items:center;gap:0.5rem;transition:all 0.2s;}
+.btn-download:hover{background:#2d5a42;}
+.download-row{display:flex;gap:0.75rem;margin-top:0.75rem;flex-wrap:wrap;}
+
+/* STATUS */
+.status-msg{padding:1rem;border-radius:10px;margin-bottom:1rem;font-size:0.9rem;display:none;}
+.status-msg.success{background:#e8f5e9;color:#2e7d32;border:1px solid #c8e6c9;display:block;}
+.status-msg.error{background:#ffebee;color:#c62828;border:1px solid #ffcdd2;display:block;}
+.status-msg.info{background:#e3f2fd;color:#1565c0;border:1px solid #bbdefb;display:block;}
+
+/* EVENT LIST */
+.event-item{background:#fff;border-radius:12px;padding:1rem 1.25rem;margin-bottom:0.75rem;border:1px solid #e8e4da;}
+.event-item-row{display:flex;align-items:center;gap:0.75rem;}
+.event-item-info{flex:1;}
+.event-item-info h4{font-size:0.92rem;font-weight:500;margin-bottom:0.15rem;}
+.event-item-info p{font-size:0.78rem;color:#888;}
+.event-badges{display:flex;gap:0.4rem;margin-top:0.4rem;flex-wrap:wrap;}
+.badge-trip{background:#e8f5e9;color:#2e7d32;font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:50px;font-weight:500;}
+.badge-photos{background:#e3f2fd;color:#1565c0;font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:50px;font-weight:500;}
+.badge-off{background:#fff3e0;color:#e65100;font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:50px;font-weight:500;}
+.event-actions{display:flex;gap:0.5rem;margin-top:0.75rem;padding-top:0.75rem;border-top:1px solid #f0ede6;flex-wrap:wrap;}
+
+/* TOGGLE */
+.toggle-wrap{display:flex;align-items:center;gap:0.5rem;flex-shrink:0;}
+.toggle-label{font-size:0.78rem;color:#666;min-width:26px;}
+.toggle{position:relative;width:40px;height:22px;}
+.toggle input{opacity:0;width:0;height:0;}
+.toggle-slider{position:absolute;inset:0;background:#ccc;border-radius:22px;cursor:pointer;transition:0.3s;}
+.toggle-slider:before{content:'';position:absolute;width:16px;height:16px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:0.3s;}
+.toggle input:checked+.toggle-slider{background:#2d7a4f;}
+.toggle input:checked+.toggle-slider:before{transform:translateX(18px);}
+
+/* PHOTOS */
+.photo-section{background:#f9f7f3;border-radius:12px;padding:1.25rem;margin-top:0.5rem;}
+.photo-section h4{font-size:0.85rem;font-weight:600;color:#1e3a2f;margin-bottom:0.75rem;}
+.photo-list{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:0.75rem;}
+.photo-row{display:grid;grid-template-columns:60px 1fr auto;gap:0.5rem;align-items:center;background:#fff;border-radius:8px;padding:0.5rem;}
+.photo-thumb{width:60px;height:44px;object-fit:cover;border-radius:6px;background:#eee;}
+.photo-inputs{display:flex;flex-direction:column;gap:0.3rem;}
+.photo-inputs input{border:1px solid #ddd;border-radius:6px;padding:0.3rem 0.5rem;font-size:0.8rem;font-family:'DM Sans',sans-serif;width:100%;}
+.photo-add-row{display:grid;grid-template-columns:1fr auto;gap:0.5rem;}
+.photo-add-row input{border:1.5px solid #ddd;border-radius:8px;padding:0.6rem 0.8rem;font-size:0.85rem;font-family:'DM Sans',sans-serif;}
+.btn-add{background:#2d7a4f;color:#fff;border:none;border-radius:8px;padding:0.6rem 1rem;font-size:0.85rem;cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;}
+
+/* TRIP TOGGLE */
+.trip-row{display:flex;align-items:center;justify-content:space-between;background:#f0f8f4;border-radius:10px;padding:0.85rem 1rem;margin-bottom:0.75rem;border:1.5px solid #c8e6c9;}
+.trip-row .tl{font-size:0.9rem;font-weight:500;color:#1e3a2f;}
+.trip-row small{display:block;font-size:0.78rem;color:#666;font-weight:400;}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.5);display:none;align-items:flex-end;justify-content:center;z-index:1000;}
+.modal-bg.open{display:flex;}
+.modal-sheet{background:#fff;border-radius:20px 20px 0 0;padding:2rem 1.5rem;width:100%;max-height:92vh;overflow-y:auto;}
+.modal-handle{width:40px;height:4px;background:#ddd;border-radius:2px;margin:0 auto 1.5rem;}
+.modal-sheet h3{font-size:1.15rem;font-weight:700;margin-bottom:1.25rem;}
+
+/* UPLOAD ZONE */
+.upload-zone{border:2px dashed #c8e6c9;border-radius:12px;padding:2rem;text-align:center;cursor:pointer;background:#f9fdf9;margin-bottom:1rem;transition:all 0.2s;}
+.upload-zone:hover{border-color:#2d7a4f;background:#f0f8f4;}
+.upload-zone p{color:#6b6b6b;font-size:0.9rem;}
+.upload-zone strong{color:#1e3a2f;}
+
+.divider{border:none;border-top:1px solid #e8e4da;margin:1.25rem 0;}
+.char-count{font-size:0.76rem;color:#999;text-align:right;margin-top:0.2rem;}
+
+/* INSTRUCTIONS BOX */
+.instructions{background:#fff;border-radius:14px;padding:1.5rem;margin-bottom:1.5rem;border:1px solid #e8e4da;}
+.instructions h3{font-size:1rem;font-weight:600;color:#1e3a2f;margin-bottom:0.75rem;}
+.instructions ol{padding-left:1.25rem;color:#6b6b6b;font-size:0.9rem;line-height:2;}
+.instructions ol li strong{color:#2a2a2a;}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <h1>JVO Adventures Admin <span class="local-badge">LOCAL</span></h1>
+  <div class="topbar-links">
+    <a href="roadmap.html">📋 Roadmap</a>
+    <a href="index.html">← View Site</a>
+  </div>
+</div>
+
+<div class="body">
+
+  <div class="instructions">
+    <h3>📋 How this works</h3>
+    <ol>
+      <li><strong>Add or edit events</strong> using the form below</li>
+      <li><strong>Download the files</strong> — you'll get <code>events.json</code> and any trip page HTML files</li>
+      <li><strong>Upload to GitHub</strong> — drag the files into the repo to publish</li>
+    </ol>
+  </div>
+
+  <!-- LOAD EXISTING EVENTS.JSON -->
+  <div class="upload-zone" onclick="document.getElementById('json-upload').click()">
+    <p>📂 <strong>Load your current events.json</strong><br>Click to load the file from your computer so you can edit existing events</p>
+    <input type="file" id="json-upload" accept=".json" style="display:none" onchange="loadJSON(this)">
+  </div>
+
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('add')">Add Event</button>
+    <button class="tab" onclick="switchTab('manage')">Manage Events</button>
+  </div>
+
+  <!-- ADD TAB -->
+  <div id="tab-add">
+    <div id="add-status" class="status-msg"></div>
+
+    <div class="field">
+      <label>Event Title *</label>
+      <input type="text" id="ev-title" placeholder="e.g. Morning Hike at Ravenswood" maxlength="80" oninput="countChars(this,'tc-title')">
+      <div class="char-count"><span id="tc-title">0</span>/80</div>
+    </div>
+    <div class="half">
+      <div class="field"><label>Type</label>
+        <select id="ev-type">
+          <option value="hike">🥾 Hiking</option>
+          <option value="kayak">🛶 Kayaking</option>
+          <option value="fish">🎣 Fishing</option>
+          <option value="snow">🏔️ Snowshoeing</option>
+          <option value="other">🌲 Other</option>
+        </select>
+      </div>
+      <div class="field"><label>Difficulty</label>
+        <select id="ev-difficulty">
+          <option value="easy">Easy</option>
+          <option value="moderate">Moderate</option>
+          <option value="challenging">Challenging</option>
+        </select>
+      </div>
+    </div>
+    <div class="half">
+      <div class="field"><label>Date *</label><input type="date" id="ev-date"></div>
+      <div class="field"><label>Time</label><input type="time" id="ev-time"></div>
+    </div>
+    <div class="field"><label>Location *</label><input type="text" id="ev-location" placeholder="e.g. Ravenswood Park, Gloucester, MA"></div>
+    <div class="field">
+      <label>Description</label>
+      <textarea id="ev-desc" placeholder="What to expect, what to bring..." maxlength="500" oninput="countChars(this,'tc-desc')"></textarea>
+      <div class="char-count"><span id="tc-desc">0</span>/500</div>
+    </div>
+    <div class="field"><label>Spots Available</label><input type="number" id="ev-spots" placeholder="8" min="1" max="50"></div>
+
+    <hr class="divider">
+
+    <div class="trip-row">
+      <div><span class="tl">📸 Create Trip Page with Slideshow</span><small>Generates a dedicated HTML page with photos &amp; sign-up</small></div>
+      <label class="toggle"><input type="checkbox" id="ev-trippage" onchange="togglePS('photo-section',this.checked)"><span class="toggle-slider"></span></label>
+    </div>
+    <div id="photo-section" style="display:none;">
+      <div class="photo-section">
+        <h4>Photos <span style="font-weight:400;color:#888;font-size:0.78rem">— paste Cloudinary URLs</span></h4>
+        <div class="photo-list" id="photo-list"></div>
+        <div class="photo-add-row">
+          <input type="text" id="new-photo-url" placeholder="https://res.cloudinary.com/...">
+          <button class="btn-add" onclick="addPhoto('add')">+ Add</button>
+        </div>
+        <p style="font-size:0.76rem;color:#999;margin-top:0.4rem;">First photo becomes the event card cover image.</p>
+      </div>
+    </div>
+
+    <hr class="divider">
+    <p style="font-size:0.78rem;color:#999;margin-bottom:1rem;">* Required fields</p>
+    <button class="btn-green" onclick="addEvent()">➕ Add Event</button>
+  </div>
+
+  <!-- MANAGE TAB -->
+  <div id="tab-manage" style="display:none;">
+    <div id="manage-status" class="status-msg"></div>
+    <p style="font-size:0.88rem;color:#666;margin-bottom:1.25rem;">Toggle events live/off, edit details, or delete. Then download the updated files.</p>
+    <div id="events-manage-list"><p style="color:#999;text-align:center;padding:2rem;">Load your events.json file above to see events.</p></div>
+  </div>
+
+  <!-- DOWNLOAD SECTION -->
+  <hr class="divider">
+  <div style="background:#fff;border-radius:14px;padding:1.5rem;border:1px solid #e8e4da;">
+    <h3 style="font-size:1rem;font-weight:600;color:#1e3a2f;margin-bottom:0.5rem;">⬇️ Download &amp; Upload to GitHub</h3>
+    <p style="font-size:0.88rem;color:#6b6b6b;margin-bottom:1rem;">Download the files below, then drag them into your GitHub repo to publish.</p>
+    <div class="download-row">
+      <button class="btn-download" onclick="downloadJSON()">⬇️ events.json</button>
+      <button class="btn-download" onclick="downloadAllTripPages()">⬇️ All Trip Pages</button>
+    </div>
+    <div id="individual-downloads" style="margin-top:0.75rem;display:flex;gap:0.5rem;flex-wrap:wrap;"></div>
+  </div>
+
+</div>
+
+<!-- EDIT MODAL -->
+<div class="modal-bg" id="edit-modal">
+  <div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <h3>Edit Event</h3>
+    <input type="hidden" id="edit-id">
+    <div class="field"><label>Title</label><input type="text" id="edit-title"></div>
+    <div class="half">
+      <div class="field"><label>Date</label><input type="date" id="edit-date"></div>
+      <div class="field"><label>Time</label><input type="time" id="edit-time"></div>
+    </div>
+    <div class="field"><label>Location</label><input type="text" id="edit-location"></div>
+    <div class="field"><label>Description</label><textarea id="edit-desc"></textarea></div>
+    <div class="field"><label>Spots</label><input type="number" id="edit-spots" min="1" max="50"></div>
+    <hr class="divider">
+    <div class="trip-row">
+      <div><span class="tl">📸 Trip Page</span><small>Toggle on/off</small></div>
+      <label class="toggle"><input type="checkbox" id="edit-trippage" onchange="togglePS('edit-photo-section',this.checked)"><span class="toggle-slider"></span></label>
+    </div>
+    <div id="edit-photo-section" style="display:none;">
+      <div class="photo-section">
+        <h4>Photos</h4>
+        <div class="photo-list" id="edit-photo-list"></div>
+        <div class="photo-add-row">
+          <input type="text" id="edit-new-photo-url" placeholder="https://res.cloudinary.com/...">
+          <button class="btn-add" onclick="addPhoto('edit')">+ Add</button>
+        </div>
+      </div>
+    </div>
+    <hr class="divider">
+    <div style="display:flex;gap:0.75rem;">
+      <button class="btn-green" style="flex:1" onclick="saveEdit()">Save Changes</button>
+      <button class="btn-outline" onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<script>
+let events = [];
+let addPhotos = [];
+let editPhotos = [];
+
+// ── LOAD JSON ──────────────────────────────────────────────────────────────
+function loadJSON(input) {
+  const file = input.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    try {
+      events = JSON.parse(e.target.result);
+      renderManageList();
+      updateDownloadButtons();
+      showStatus('manage-status', 'success', `✓ Loaded ${events.length} events from ${file.name}`);
+      switchTab('manage');
+    } catch { alert('Could not parse events.json — check the file.'); }
+  };
+  reader.readAsText(file);
+}
+
+// ── TABS ───────────────────────────────────────────────────────────────────
+function switchTab(n) {
+  document.getElementById('tab-add').style.display = n==='add'?'block':'none';
+  document.getElementById('tab-manage').style.display = n==='manage'?'block':'none';
+  document.querySelectorAll('.tab').forEach((t,i) => t.classList.toggle('active',(i===0&&n==='add')||(i===1&&n==='manage')));
+}
+
+function togglePS(id, on) { document.getElementById(id).style.display = on?'block':'none'; }
+
+// ── PHOTOS ─────────────────────────────────────────────────────────────────
+function addPhoto(mode) {
+  const inputId = mode==='add' ? 'new-photo-url' : 'edit-new-photo-url';
+  const url = document.getElementById(inputId).value.trim();
+  if (!url) return;
+  if (mode==='add') { addPhotos.push({url,caption:'',desc:''}); renderPhotos('photo-list',addPhotos,'add'); }
+  else { editPhotos.push({url,caption:'',desc:''}); renderPhotos('edit-photo-list',editPhotos,'edit'); }
+  document.getElementById(inputId).value = '';
+}
+
+function renderPhotos(containerId, photos, mode) {
+  document.getElementById(containerId).innerHTML = photos.map((p,i) => `
+    <div class="photo-row">
+      <img class="photo-thumb" src="${p.url}" alt="" onerror="this.style.opacity=0.3">
+      <div class="photo-inputs">
+        <input type="text" placeholder="Caption" value="${p.caption||''}" onchange="get${mode==='add'?'Add':'Edit'}Photos()[${i}].caption=this.value">
+        <input type="text" placeholder="Description (optional)" value="${p.desc||''}" onchange="get${mode==='add'?'Add':'Edit'}Photos()[${i}].desc=this.value">
+      </div>
+      <button class="btn-danger btn-sm" onclick="removePhoto('${mode}',${i})">✕</button>
+    </div>`).join('');
+}
+
+function getAddPhotos(){return addPhotos;}
+function getEditPhotos(){return editPhotos;}
+function removePhoto(mode,i){
+  if(mode==='add'){addPhotos.splice(i,1);renderPhotos('photo-list',addPhotos,'add');}
+  else{editPhotos.splice(i,1);renderPhotos('edit-photo-list',editPhotos,'edit');}
+}
+
+// ── ADD EVENT ──────────────────────────────────────────────────────────────
+function addEvent() {
+  const title = document.getElementById('ev-title').value.trim();
+  const date = document.getElementById('ev-date').value;
+  const location = document.getElementById('ev-location').value.trim();
+  if (!title||!date||!location) { showStatus('add-status','error','Please fill in title, date, and location.'); return; }
+  const timeVal = document.getElementById('ev-time').value;
+  const tripPage = document.getElementById('ev-trippage').checked;
+  const id = 'evt-' + Date.now();
+  events.push({
+    id, title, type: document.getElementById('ev-type').value,
+    date, time: timeVal ? fmt12(timeVal) : '',
+    location, description: document.getElementById('ev-desc').value.trim(),
+    difficulty: document.getElementById('ev-difficulty').value,
+    spots: parseInt(document.getElementById('ev-spots').value)||null,
+    enabled: true, tripPage,
+    photo: addPhotos.length ? addPhotos[0].url : '',
+    photos: [...addPhotos],
+  });
+  showStatus('add-status','success',`✓ "${title}" added! Download events.json${tripPage?' and the trip page':''} to publish.`);
+  resetForm();
+  updateDownloadButtons();
+}
+
+function resetForm() {
+  ['ev-title','ev-location','ev-desc','ev-spots'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('ev-type').value='hike';
+  document.getElementById('ev-difficulty').value='easy';
+  document.getElementById('ev-date').value=new Date().toISOString().split('T')[0];
+  document.getElementById('ev-trippage').checked=false;
+  document.getElementById('photo-section').style.display='none';
+  addPhotos=[]; renderPhotos('photo-list',addPhotos,'add');
+}
+
+// ── MANAGE LIST ────────────────────────────────────────────────────────────
+function renderManageList() {
+  const list = document.getElementById('events-manage-list');
+  if (!events.length) { list.innerHTML='<p style="color:#999;text-align:center;padding:2rem;">No events.</p>'; return; }
+  list.innerHTML = events.map(e => `
+    <div class="event-item">
+      <div class="event-item-row">
+        <div class="event-item-info">
+          <h4>${e.title}</h4>
+          <p>${e.date} · ${e.location}</p>
+          <div class="event-badges">
+            ${e.tripPage?'<span class="badge-trip">📸 Trip Page</span>':''}
+            ${(e.photos||[]).length?`<span class="badge-photos">${e.photos.length} photos</span>`:''}
+            ${!e.enabled?'<span class="badge-off">Hidden</span>':''}
+          </div>
+        </div>
+        <div class="toggle-wrap">
+          <span class="toggle-label">${e.enabled?'Live':'Off'}</span>
+          <label class="toggle">
+            <input type="checkbox" ${e.enabled?'checked':''} onchange="toggleEvent('${e.id}',this.checked,this)">
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+      </div>
+      <div class="event-actions">
+        <button class="btn-outline btn-sm" onclick="openEdit('${e.id}')">✏️ Edit</button>
+        <button class="btn-danger btn-sm" onclick="deleteEvent('${e.id}')">Delete</button>
+      </div>
+    </div>`).join('');
+}
+
+function toggleEvent(id, enabled, checkbox) {
+  const e = events.find(ev=>ev.id===id);
+  if (e) e.enabled = enabled;
+  checkbox.closest('.toggle-wrap').querySelector('.toggle-label').textContent = enabled?'Live':'Off';
+  renderManageList();
+}
+
+function deleteEvent(id) {
+  if (!confirm('Delete this event?')) return;
+  events = events.filter(e=>e.id!==id);
+  renderManageList();
+  updateDownloadButtons();
+  showStatus('manage-status','success','Event deleted. Download events.json to publish.');
+}
+
+// ── EDIT ───────────────────────────────────────────────────────────────────
+function openEdit(id) {
+  const e = events.find(ev=>ev.id===id);
+  if (!e) return;
+  document.getElementById('edit-id').value=e.id;
+  document.getElementById('edit-title').value=e.title;
+  document.getElementById('edit-date').value=e.date;
+  document.getElementById('edit-time').value=e.time?to24(e.time):'';
+  document.getElementById('edit-location').value=e.location;
+  document.getElementById('edit-desc').value=e.description||'';
+  document.getElementById('edit-spots').value=e.spots||'';
+  document.getElementById('edit-trippage').checked=!!e.tripPage;
+  document.getElementById('edit-photo-section').style.display=e.tripPage?'block':'none';
+  editPhotos=JSON.parse(JSON.stringify(e.photos||[]));
+  renderPhotos('edit-photo-list',editPhotos,'edit');
+  document.getElementById('edit-modal').classList.add('open');
+}
+
+function saveEdit() {
+  const id = document.getElementById('edit-id').value;
+  const timeVal = document.getElementById('edit-time').value;
+  const tripPage = document.getElementById('edit-trippage').checked;
+  events = events.map(e => e.id!==id ? e : {
+    ...e,
+    title: document.getElementById('edit-title').value.trim(),
+    date: document.getElementById('edit-date').value,
+    time: timeVal ? fmt12(timeVal) : e.time,
+    location: document.getElementById('edit-location').value.trim(),
+    description: document.getElementById('edit-desc').value.trim(),
+    spots: parseInt(document.getElementById('edit-spots').value)||e.spots,
+    tripPage, photo: editPhotos.length ? editPhotos[0].url : e.photo,
+    photos: [...editPhotos],
+  });
+  closeModal();
+  renderManageList();
+  updateDownloadButtons();
+  showStatus('manage-status','success','Updated! Download files to publish.');
+}
+
+function closeModal() { document.getElementById('edit-modal').classList.remove('open'); }
+
+// ── DOWNLOADS ─────────────────────────────────────────────────────────────
+function downloadJSON() {
+  download('events.json', JSON.stringify(events, null, 2));
+}
+
+function downloadAllTripPages() {
+  events.filter(e=>e.tripPage).forEach(e => {
+    download(`trip-${e.id}.html`, buildTripPage(e));
+  });
+}
+
+function updateDownloadButtons() {
+  const container = document.getElementById('individual-downloads');
+  const tripEvents = events.filter(e=>e.tripPage);
+  if (!tripEvents.length) { container.innerHTML=''; return; }
+  container.innerHTML = tripEvents.map(e =>
+    `<button class="btn-outline btn-sm" onclick="downloadTrip('${e.id}')">⬇️ trip-${e.id}.html</button>`
+  ).join('');
+}
+
+function downloadTrip(id) {
+  const e = events.find(ev=>ev.id===id);
+  if (e) download(`trip-${e.id}.html`, buildTripPage(e));
+}
+
+function download(filename, content) {
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([content], {type:'text/plain'}));
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+// ── TRIP PAGE BUILDER ──────────────────────────────────────────────────────
+function buildTripPage(e) {
+  const su = `https://tally.so/r/WOYbvQ?event_id=${e.id}&event_name=${encodeURIComponent(e.title)}&event_date=${encodeURIComponent(fmtDate(e.date))}`;
+  const ph = e.photos||[];
+  const typeMap = {hike:'🥾 Hiking',kayak:'🛶 Kayaking',fish:'🎣 Fishing',snow:'🏔️ Snowshoeing',other:'🌲 Outdoor'};
+
+  const slides = ph.map((p,i)=>`<div class="sl${i===0?' active':''}" data-c="${esc(p.caption)}" data-d="${esc(p.desc)}"><img src="${p.url}" alt="${esc(p.caption)}"></div>`).join('');
+
+  return `<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>${e.title} — JVO Adventures</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero{min-height:52vh;background:linear-gradient(160deg,#1e3a2f,#2d5a42 60%,#1a4a35);display:flex;flex-direction:column;justify-content:flex-end;padding:16rem 2rem 3rem;position:relative;overflow:hidden;}
+.pht{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.phc{position:relative;z-index:1;max-width:700px;}
+.bc{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#6aab84;margin-bottom:.75rem;display:block;}
+.page-hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);color:#fff;line-height:1.15;margin-bottom:1rem;}
+.hm{display:flex;flex-wrap:wrap;gap:1.25rem;}.hmi{font-size:.9rem;color:rgba(255,255,255,.7);}.hmi strong{color:#fff;}
+.sw{position:relative;background:#111;}.sl{display:none;position:relative;width:100%;}.sl.active{display:block;}
+.sl img{width:100%;height:clamp(320px,60vw,680px);object-fit:cover;display:block;opacity:0;transition:opacity .5s;}.sl img.ld{opacity:1;}
+.sc{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.72));padding:3rem 2rem 1.5rem;color:#fff;}
+.sc h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:.25rem;}.sc p{font-size:.88rem;color:rgba(255,255,255,.72);}
+.sp,.sn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);color:#fff;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;z-index:10;}
+.sp{left:1rem;}.sn{right:1rem;}
+.sdots{display:flex;justify-content:center;gap:.5rem;padding:1.25rem 0 .5rem;background:#111;}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.25);cursor:pointer;border:none;transition:all .2s;}.dot.active{background:#6aab84;transform:scale(1.3);}
+.sct{position:absolute;top:1rem;right:1rem;background:rgba(0,0,0,.45);color:#fff;font-size:.8rem;padding:.3rem .75rem;border-radius:50px;z-index:10;}
+.ts{display:flex;gap:4px;overflow-x:auto;background:#111;padding:4px 4px 1rem;scrollbar-width:none;}.ts::-webkit-scrollbar{display:none;}
+.th{flex-shrink:0;width:80px;height:56px;object-fit:cover;cursor:pointer;opacity:.45;transition:opacity .2s;border-radius:4px;}.th.active{opacity:1;outline:2px solid #6aab84;}
+.ti{padding:4rem 0;max-width:900px;margin:0 auto;padding-left:1.5rem;padding-right:1.5rem;}
+.tsg{display:grid;grid-template-columns:repeat(4,1fr);gap:.75rem;margin-bottom:2rem;}
+.tsc{background:#ede9df;border-radius:12px;padding:1rem 1.25rem;}
+.tsl{font-size:.75rem;text-transform:uppercase;letter-spacing:.08em;color:#6b6b6b;margin-bottom:.3rem;}
+.tsv{font-size:1.1rem;font-weight:600;color:#1e3a2f;font-family:'Playfair Display',serif;}
+.td{font-size:1.05rem;color:#6b6b6b;line-height:1.8;max-width:680px;margin-bottom:2rem;}
+.ss{background:#1e3a2f;padding:4rem 0;text-align:center;}
+.ss h2{font-family:'Playfair Display',serif;color:#fff;font-size:2rem;margin-bottom:.75rem;}
+.ss p{color:rgba(255,255,255,.65);margin-bottom:2rem;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.7;}
+.sb{background:#6aab84;color:#1e3a2f;font-weight:600;display:inline-block;padding:.9rem 2rem;border-radius:50px;font-family:'DM Sans',sans-serif;font-size:1rem;text-decoration:none;}
+.sb:hover{background:#7fc498;}
+@media(max-width:640px){.tsg{grid-template-columns:1fr 1fr;}.nav-links{display:none;}}
+</style></head><body>
+<nav class="nav">
+  <a href="index.html" class="nav-logo"><img src="logo.jpg" alt="JVO Adventures" style="height:200px;width:auto;display:block;"></a>
+  <div class="nav-links"><a href="index.html#about">About</a><a href="events.html">Events</a><a href="index.html#contact">Contact</a></div>
+  <a href="${su}" target="_blank" class="nav-cta">Sign Up</a>
+</nav>
+<div class="page-hero">
+  <div class="pht"></div>
+  <div class="phc">
+    <span class="bc"><a href="events.html" style="color:#6aab84;">← Back to Events</a></span>
+    <h1>${e.title}</h1>
+    <div class="hm">
+      <div class="hmi">📅 <strong>${fmtDate(e.date)}</strong></div>
+      <div class="hmi">🕘 <strong>${e.time||'Time TBD'}</strong></div>
+      <div class="hmi">${typeMap[e.type]||typeMap.other}</div>
+      ${e.spots?`<div class="hmi">👥 <strong>${e.spots} spots</strong></div>`:''}
+    </div>
+  </div>
+</div>
+${ph.length?`
+<div class="sw">
+  <div class="sct"><span id="cur">1</span> / ${ph.length}</div>
+  ${slides}
+  <button class="sp" onclick="mv(-1)">&#8592;</button>
+  <button class="sn" onclick="mv(1)">&#8594;</button>
+  <div class="sc"><h3 id="ct">${esc(ph[0].caption)}</h3><p id="cd">${esc(ph[0].desc)}</p></div>
+</div>
+<div class="sdots" id="dots"></div>
+<div class="ts" id="ths"></div>`:''}
+<section class="ti">
+  <div class="tsg">
+    <div class="tsc"><div class="tsl">Date</div><div class="tsv">${fmtShort(e.date)}</div></div>
+    <div class="tsc"><div class="tsl">Time</div><div class="tsv">${e.time||'TBD'}</div></div>
+    <div class="tsc"><div class="tsl">Difficulty</div><div class="tsv">${(e.difficulty||'easy').charAt(0).toUpperCase()+(e.difficulty||'easy').slice(1)}</div></div>
+    <div class="tsc"><div class="tsl">Spots</div><div class="tsv">${e.spots||'Open'}</div></div>
+  </div>
+  <p class="td">${e.description||''}</p>
+  <div style="background:#ede9df;border-radius:14px;padding:1.25rem;">
+    <p style="font-size:.85rem;font-weight:600;color:#2a2a2a;margin-bottom:.4rem;">📍 Location</p>
+    <p style="font-size:.9rem;color:#6b6b6b;margin:0;">${e.location}</p>
+  </div>
+</section>
+<div class="ss">
+  <h2>Ready to come along?</h2>
+  <p>Sign up takes 30 seconds — Johnny will be in touch with final details closer to the date.</p>
+  <a href="${su}" target="_blank" class="sb">Sign Up for This Trip</a>
+</div>
+<footer class="footer"><div class="container">
+  <img src="logo.jpg" alt="JVO Adventures" style="height:60px;width:auto;margin:0 auto .75rem;display:block;opacity:.9;">
+  <p>jvoadventures.com &nbsp;·&nbsp; Marblehead, MA</p>
+  <p class="footer-tagline">"You don't need to see the summit. Just take the next step."</p>
+</div></footer>
+${ph.length?`<script>
+const sls=document.querySelectorAll('.sl'),de=document.getElementById('dots'),te=document.getElementById('ths');
+const ph=${JSON.stringify(ph)};
+let c=0,t;
+ph.forEach((p,i)=>{const d=document.createElement('button');d.className='dot'+(i===0?' active':'');d.onclick=()=>gt(i);de.appendChild(d);const th=document.createElement('img');th.src=p.url;th.className='th'+(i===0?' active':'');th.onclick=()=>gt(i);te.appendChild(th);});
+function gt(n){sls[c].classList.remove('active');document.querySelectorAll('.dot')[c].classList.remove('active');document.querySelectorAll('.th')[c].classList.remove('active');c=(n+sls.length)%sls.length;sls[c].classList.add('active');document.querySelectorAll('.dot')[c].classList.add('active');const th=document.querySelectorAll('.th')[c];th.classList.add('active');th.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});document.getElementById('ct').textContent=ph[c].caption||'';document.getElementById('cd').textContent=ph[c].desc||'';document.getElementById('cur').textContent=c+1;const img=sls[c].querySelector('img');if(img.complete)img.classList.add('ld');else img.onload=()=>img.classList.add('ld');clearInterval(t);t=setInterval(()=>gt(c+1),5000);}
+function mv(d){gt(c+d);}
+document.querySelector('.sw').addEventListener('touchstart',e=>window._x=e.touches[0].clientX);
+document.querySelector('.sw').addEventListener('touchend',e=>{const d=window._x-e.changedTouches[0].clientX;if(Math.abs(d)>40)mv(d>0?1:-1);});
+document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')mv(-1);if(e.key==='ArrowRight')mv(1);});
+const fi=sls[0].querySelector('img');if(fi.complete)fi.classList.add('ld');else fi.onload=()=>fi.classList.add('ld');
+t=setInterval(()=>gt(c+1),5000);
+<\/script>`:''}
+</body></html>`;
+}
+
+// ── HELPERS ───────────────────────────────────────────────────────────────
+function fmtDate(s){const d=new Date(s+'T12:00:00');return d.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric',year:'numeric'});}
+function fmtShort(s){const d=new Date(s+'T12:00:00');return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});}
+function fmt12(t){const[h,m]=t.split(':').map(Number);return`${h%12||12}:${String(m).padStart(2,'0')} ${h>=12?'PM':'AM'}`;}
+function to24(t){if(!t)return'';const[ti,ap]=t.split(' ');let[h,m]=ti.split(':').map(Number);if(ap==='PM'&&h!==12)h+=12;if(ap==='AM'&&h===12)h=0;return`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;}
+function esc(s){return(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
+function countChars(el,id){document.getElementById(id).textContent=el.value.length;}
+function showStatus(id,type,msg){const el=document.getElementById(id);el.className='status-msg '+type;el.textContent=msg;if(type==='success')setTimeout(()=>el.style.display='none',6000);}
+
+document.getElementById('edit-modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+document.getElementById('ev-date').value = new Date().toISOString().split('T')[0];
+</script>
+</body></html>

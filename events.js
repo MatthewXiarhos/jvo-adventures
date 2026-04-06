@@ -2,7 +2,7 @@
 const CONFIG = {
   GITHUB_USER: 'YOUR_GITHUB_USERNAME',
   GITHUB_REPO: 'jvo-adventures',
-  TALLY_SIGNUP_BASE: 'https://tally.so/r/SIGNUP_FORM_ID',
+  TALLY_SIGNUP_BASE: 'https://tally.so/r/WOYbvQ',
 };
 
 // ─── LOAD EVENTS ──────────────────────────────────────────────────────────
