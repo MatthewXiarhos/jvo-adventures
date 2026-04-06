@@ -103,6 +103,103 @@ a { color: inherit; text-decoration: none; }
 .final-block .emphasis { color: var(--white) !important; font-weight: 500; font-size: 1.05rem !important; margin-top: 1.25rem !important; }
 .final-site { color: var(--moss) !important; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1rem !important; margin-top: 1.5rem !important; }
 
+/* ── ACCOMPLISHMENTS ── */
+.accomplishments {
+  background: var(--forest);
+  border-radius: 16px;
+  padding: 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+}
+.accomplishments h2 {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+.accomplishments .acc-sub {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.88rem;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+.acc-list { list-style: none; }
+.acc-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.acc-item:last-child { border-bottom: none; }
+.acc-check {
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--moss); color: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+.acc-check::after { content: '✓'; }
+.acc-text { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.65; }
+.acc-text strong { color: var(--white); }
+.acc-footer {
+  margin-top: 1.75rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  color: var(--moss);
+  font-size: 1.05rem;
+  text-align: center;
+  line-height: 1.7;
+}
+
+/* ── MILESTONE DATES ── */
+.milestone-bar {
+  background: var(--amber);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--forest);
+  display: inline-block;
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* ── PHASE CHECKLIST ── */
+.checklist-section { margin-top: 1.5rem; }
+.checklist-section h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--moss);
+  margin: 0 0 0.75rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--cream-dark);
+}
+.checklist { list-style: none; margin: 0; }
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--cream-dark);
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.checklist li:last-child { border-bottom: none; }
+.cl-box {
+  width: 18px; height: 18px; border-radius: 4px;
+  border: 2px solid var(--sand);
+  flex-shrink: 0; margin-top: 0.15rem;
+  background: var(--cream);
+}
+
 @media (max-width: 640px) {
   .diff-grid { grid-template-columns: 1fr; }
   .stage-header { flex-direction: column; gap: 0.5rem; }
@@ -193,6 +290,47 @@ a { color: inherit; text-decoration: none; }
     </div>
   </div>
 
+  <!-- ACCOMPLISHMENTS -->
+  <div class="accomplishments">
+    <h2>Look How Far You've Come</h2>
+    <p class="acc-sub">Every single one of these took courage. Read this when you need a reminder of who you already are.</p>
+    <ul class="acc-list">
+      <li class="acc-item">
+        <div class="acc-check"></div>
+        <div class="acc-text"><strong>Made the most important decision of your life.</strong> You recognized you needed help — and you asked for it. That is not weakness. That is the hardest kind of strength.</div>
+      </li>
+      <li class="acc-item">
+        <div class="acc-check"></div>
+        <div class="acc-text"><strong>Walked into the Emergency Room on your own.</strong> You told them you wanted to detox. Nobody carried you there. You chose to go.</div>
+      </li>
+      <li class="acc-item">
+        <div class="acc-check"></div>
+        <div class="acc-text"><strong>Completed Acute Treatment.</strong> You went through the first and hardest part of detox — and you came out the other side.</div>
+      </li>
+      <li class="acc-item">
+        <div class="acc-check"></div>
+        <div class="acc-text"><strong>Earned strong recommendations from Acute Treatment.</strong> Your commitment to sobriety and your behavior spoke for themselves. Doors opened because of who you were in that room.</div>
+      </li>
+      <li class="acc-item">
+        <div class="acc-check"></div>
+        <div class="acc-text"><strong>Accepted into North Cottage — one of the best treatment programs in the country.</strong> You didn't just get referred. You earned it. Your recommendations were that strong.</div>
+      </li>
+      <li class="acc-item">
+        <div class="acc-check"></div>
+        <div class="acc-text"><strong>Appointed Houseman.</strong> Your peers and staff trusted you to manage daily responsibilities for the entire program. That title is not given — it is earned through daily consistency.</div>
+      </li>
+      <li class="acc-item">
+        <div class="acc-check"></div>
+        <div class="acc-text"><strong>Stood up and told your story.</strong> In front of your entire support group — your challenges with addiction, your father, your life. Every person in that room gave you back encouragement. That is what happens when someone speaks the truth.</div>
+      </li>
+      <li class="acc-item">
+        <div class="acc-check"></div>
+        <div class="acc-text"><strong>Earned your first day pass — spent Easter Sunday with your family.</strong> Your commitment to the rules, to roll calls, to your responsibilities made it possible. Your family got you back that day because of choices you made every single day before it.</div>
+      </li>
+    </ul>
+    <p class="acc-footer">"The man you are becoming was built one decision at a time.<br>Every item on this list is a decision you made. You made all of them."</p>
+  </div>
+
   <!-- THE VISION -->
   <div class="vision-block">
     <span class="section-label">The Vision</span>
@@ -257,6 +395,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
     <div class="stage-body">
+      <div class="milestone-bar">🎯 Milestone — Spring / Summer 2026</div>
       <h3>What This Stage Is About</h3>
       <p>You don't need a business plan right now. You need repetition, relationship, and proof — to yourself — that you love doing this. Stage 1 is about showing up consistently as the person who brings others outside. Nothing more.</p>
 
@@ -273,10 +412,22 @@ a { color: inherit; text-decoration: none; }
       <ul>
         <li>Invite 2–3 sober friends on a short walk — no agenda, just move</li>
         <li>Pick places you already know and love. Keep it simple.</li>
-        <li>Start taking photos. These become your website content.</li>
-        <li>Buy the domain jvoadventures.com (done!) — let it sit until ready</li>
+        <li>Start taking photos — your Cloudinary library is set up and ready for every image you capture</li>
+        <li>jvoadventures.com is live — when you want to share a trip with someone, the link is already there</li>
         <li>If it feels right, attend a local hiking or outdoor club just to observe</li>
       </ul>
+
+      <div class="checklist-section">
+        <h3>Stage 1 Focus Checklist</h3>
+        <ul class="checklist">
+          <li><div class="cl-box"></div>Completed at least one outing with a sober friend</li>
+          <li><div class="cl-box"></div>Taking photos regularly — building a real library of real moments</li>
+          <li><div class="cl-box"></div>Done 5+ outings and still feel genuinely excited</li>
+          <li><div class="cl-box"></div>At least one person has asked "when's the next one?"</li>
+          <li><div class="cl-box"></div>Sobriety is stable and protected — it comes before everything else</li>
+          <li><div class="cl-box"></div>Physical health is part of the routine — moving, eating, sleeping</li>
+        </ul>
+      </div>
 
       <div class="ready-box">
         <h3>How You'll Know You're Ready for Stage 2</h3>
@@ -295,15 +446,17 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
     <div class="stage-body">
+      <div class="milestone-bar">🎯 Milestone — Fall 2026 / Winter 2027</div>
       <h3>What This Stage Is About</h3>
-      <p>You now have a small track record. It's time to make JVO Adventures a real thing — not a business yet, but a recognizable community. You build a web presence, start planning trips with intention, and let people know you exist.</p>
+      <p>You now have a small track record. It's time to make JVO Adventures a real thing — not a business yet, but a recognizable community. The good news: the foundation is already built and waiting for you. When you're ready, you don't have to figure out the technology. You just show up and start using it.</p>
 
-      <h3>Website and Online Presence</h3>
+      <h3>Your Website Is Already Live</h3>
       <ul>
-        <li>Launch jvoadventures.com — keep it simple. A photo, your story, an upcoming trip.</li>
-        <li>Write a short, honest "About" page. Your recovery story IS your mission statement.</li>
-        <li>Start an Instagram or Facebook showing your outings. Authenticity over polish.</li>
-        <li>Create a simple mailing list so people can hear about upcoming trips</li>
+        <li>jvoadventures.com is built, designed, and live — your story, your mission, your identity is already there</li>
+        <li>Whenever you plan a trip, you can add it to the site and share the link — one message, one link, done</li>
+        <li>People can sign up directly through the site — their details go straight to you, no back-and-forth needed</li>
+        <li>Your photo library on Cloudinary is set up — every photo you take has a home and can go on the site immediately</li>
+        <li>Start an Instagram or Facebook showing your outings — authenticity over polish, always</li>
       </ul>
 
       <h3>Trip Planning</h3>
@@ -329,6 +482,19 @@ a { color: inherit; text-decoration: none; }
         <li>Begin researching liability insurance for outdoor guides — know what's ahead</li>
         <li>Look into basic Wilderness First Aid (WFA) certification — a weekend course, very accessible</li>
       </ul>
+
+      <div class="checklist-section">
+        <h3>Stage 2 Focus Checklist</h3>
+        <ul class="checklist">
+          <li><div class="cl-box"></div>Listed at least one trip on jvoadventures.com</li>
+          <li><div class="cl-box"></div>Shared the site link with at least one person who showed interest</li>
+          <li><div class="cl-box"></div>Running regular outings — at least monthly</li>
+          <li><div class="cl-box"></div>Have a small, consistent group of people who keep coming back</li>
+          <li><div class="cl-box"></div>Active on social media — showing real moments, not a polished brand</li>
+          <li><div class="cl-box"></div>Have connected informally with at least one recovery community (North Cottage, AA/NA, sober living)</li>
+          <li><div class="cl-box"></div>Started researching Wilderness First Aid — know when and how to do it</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -342,6 +508,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
     <div class="stage-body">
+      <div class="milestone-bar">🎯 Milestone — 2027 / 2028</div>
       <h3>What This Stage Is About</h3>
       <p>This is where the long-term vision becomes a formal commitment. You begin the educational pathway toward becoming a licensed counselor. This doesn't mean stopping what you're doing — it runs alongside it. But it gives your future work clinical weight, ethical grounding, and professional opportunity.</p>
 
@@ -374,6 +541,19 @@ a { color: inherit; text-decoration: none; }
         <li>Look into peer recovery coach certification — Massachusetts has a formal pathway</li>
         <li>Consider offering one-on-one outdoor coaching sessions at an hourly rate</li>
       </ul>
+
+      <div class="checklist-section">
+        <h3>Stage 3 Focus Checklist</h3>
+        <ul class="checklist">
+          <li><div class="cl-box"></div>Researched and chosen a degree or certificate pathway</li>
+          <li><div class="cl-box"></div>Enrolled in or actively planning an education program</li>
+          <li><div class="cl-box"></div>Completed Wilderness First Aid (WFA) at minimum</li>
+          <li><div class="cl-box"></div>Working toward Wilderness First Responder (WFR)</li>
+          <li><div class="cl-box"></div>Obtained basic outdoor guide liability insurance</li>
+          <li><div class="cl-box"></div>Begun charging modest fees for trips</li>
+          <li><div class="cl-box"></div>Had at least one conversation with a treatment center or recovery program about collaboration</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -387,6 +567,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
     <div class="stage-body">
+      <div class="milestone-bar">🎯 Milestone — 2028 / 2030</div>
       <h3>What This Stage Is About</h3>
       <p>You now have credentials, experience, and a reputation. JVO Adventures becomes a legitimate therapeutic service. You design and deliver structured outdoor recovery programs, contract with treatment facilities, and build sustainable income doing work you love.</p>
 
@@ -418,6 +599,20 @@ a { color: inherit; text-decoration: none; }
 
       <h3>What Your Week Might Look Like</h3>
       <p>Two or three individual counseling sessions. One group outdoor program for a local treatment center. Weekend day trip for the JVO Adventures community. Time for your own recovery, health, and rest. <strong>A sustainable rhythm that you built yourself.</strong></p>
+
+      <div class="checklist-section">
+        <h3>Stage 4 Focus Checklist</h3>
+        <ul class="checklist">
+          <li><div class="cl-box"></div>Hold a counseling credential (LADC or equivalent)</li>
+          <li><div class="cl-box"></div>Wilderness First Responder (WFR) certified</li>
+          <li><div class="cl-box"></div>JVO Adventures formed as an LLC</li>
+          <li><div class="cl-box"></div>Proper liability insurance in place for adventure therapy programs</li>
+          <li><div class="cl-box"></div>Active contract or partnership with at least one treatment center or recovery program</li>
+          <li><div class="cl-box"></div>Signature multi-week outdoor recovery program designed and delivered</li>
+          <li><div class="cl-box"></div>Sustainable income from JVO Adventures work</li>
+          <li><div class="cl-box"></div>Recovery remains the foundation — rhythm is healthy and protected</li>
+        </ul>
+      </div>
     </div>
   </div>
 
@@ -431,6 +626,7 @@ a { color: inherit; text-decoration: none; }
       </div>
     </div>
     <div class="stage-body">
+      <div class="milestone-bar">🎯 Milestone — 2030 and Beyond</div>
       <h3>What This Stage Is About</h3>
       <p>JVO Adventures is no longer just you. It's a model, a brand, and potentially an organization that can help many more people than you could reach alone. This stage is about multiplication — training others, expanding reach, and cementing a legacy in men's recovery.</p>
 
@@ -446,6 +642,18 @@ a { color: inherit; text-decoration: none; }
 
       <h3>The Unique Contribution You Could Make</h3>
       <p>There are very few peer-counselors-turned-adventure-guides in this field. Most programs are institutional. What you would represent — a man in long-term recovery who built a business around bringing other men outside and healing — that story doesn't exist in many places. <strong>You could write the playbook that others follow.</strong></p>
+
+      <div class="checklist-section">
+        <h3>Stage 5 Focus Checklist</h3>
+        <ul class="checklist">
+          <li><div class="cl-box"></div>Have trained at least one other peer outdoor guide in recovery</li>
+          <li><div class="cl-box"></div>JVO Adventures operates beyond just you — others carry the mission</li>
+          <li><div class="cl-box"></div>Nonprofit arm established or actively being pursued</li>
+          <li><div class="cl-box"></div>Spoken publicly about the model — conference, podcast, or community event</li>
+          <li><div class="cl-box"></div>Men in recovery have gone through JVO Adventures and gone on to lead others</li>
+          <li><div class="cl-box"></div>The legacy is larger than any single outing — it lives in the people you helped</li>
+        </ul>
+      </div>
     </div>
   </div>
 
